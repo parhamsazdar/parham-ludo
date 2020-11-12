@@ -1,6 +1,5 @@
 
 from piece import Piece
-import test
 
 
 class Players:
@@ -53,7 +52,3 @@ class Players:
         elif self.color == 'yellow':
             self.home = (810, 370)
 
-b=Players('parham','red',1)
-print(b.pos)
-print(b.start_move)
-print(b.home)
