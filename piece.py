@@ -1,20 +1,19 @@
 from Gameclass import Game
+from PyQt5.QtWidgets import QPushButton
 
-
-class Piece:
+class Piece(QPushButton):
     Red = []
     Green = []
     Blue = []
     Yellow = []
 
-    def __init__(self, color, piece_store):
+    def __init__(self, color, piece_store,*__args):
+        super().__init__(*__args)
         self.color = color
         self.on_board = False
         self.emergency = True
         self.piece_store = piece_store
         self.add_color_list()
-    def seda(self):
-        print(Game.tas)
 
     def add_color_list(self):
         if self.color == 'blue':
@@ -26,14 +25,9 @@ class Piece:
         elif self.color == 'yellow':
             Piece.Yellow.append(self)
 
-    def move(self,piece,player):
-
-        print(player.pos)
+    def move(self,piece,player=Game.main_player):
         # part1
         if Game.condination_1(piece):
-
-
-            # print(player.pos)
             player.pos[piece] = player.start_move
             self.removing( piece,player)
             piece.move(Game.board[player.pos[piece]]['coord'][0], Game.board[player.pos[piece]]['coord'][0])

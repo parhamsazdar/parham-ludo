@@ -9,9 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from piece import Piece
 
-class Button(QtWidgets.QPushButton):
-        tas=0
 class Ui_MainWindow(QtWidgets.QMainWindow):
 
     def setupUi(self, MainWindow):
@@ -257,7 +256,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 "border-radius:30px;")
         self.b_19.setText("")
         self.b_19.setObjectName("b_19")
-        self.blue_1 = Button(self.centralwidget)
+        self.blue_1 = Piece('blue',(410,620),self.centralwidget)
         self.blue_1.setGeometry(QtCore.QRect(410, 620, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -270,7 +269,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 "border-radius:30px;\n"
 "color: rgb(255, 255, 255);")
         self.blue_1.setObjectName("blue_1")
-        self.red_1 = QtWidgets.QPushButton(self.centralwidget)
+        self.red_1 = Piece('red',(310,200),self.centralwidget)
         self.red_1.setGeometry(QtCore.QRect(310, 200, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
