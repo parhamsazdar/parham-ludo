@@ -1,11 +1,5 @@
 from random import randint
 
-
-# from players import Players
-
-# parham = Players('parham', 'blue', 1)
-
-
 class Game:
     board = [0, {'coord': (490, 620), 'piece': None}, {'coord': (490, 540), 'piece': None},
              {'coord': (490, 450), 'piece': None},
@@ -29,20 +23,18 @@ class Game:
     players = None
     players_color = []
 
-    def __init__(self, *args):
+    def __init__(self, Ludo, *args):
+        Game.Ludo = Ludo
         Game.players = list(args)
         for i in Game.players:
             Game.players_color.append(i.color)
-        Game.turn = Game.players_color[0]
 
     @staticmethod
     def next_turn():
-        Game.check_tedad_home()
-        z = Game.players_color[0]
-        Game.players_color.remove(Game.players_color[0])
         Game.turn = Game.players_color[0]
-        Game.players_color.append(z)
-        Game.choose_player()
+        Game.check_tedad_home()
+        Game.players_color.append(Game.players_color.pop(0))
+        Game.players.append(Game.players.pop(0))
 
     @staticmethod
     def choose_player():
@@ -58,20 +50,28 @@ class Game:
 
     @staticmethod
     def roll():
-        print(Game.players[Game.choose_player()].name)
-        if Game.check_tedad_zamin() is False and Game.tas_count<=3:
+        if Game.turn is None:
+            Game.next_turn()
+        Game.Ludo.ui.lbl_turns.setText(
+            Game.players[Game.choose_player()].name + ' ' + Game.players[Game.choose_player()].color)
+        Game.Ludo.ui.lbl_turns.setStyleSheet(f'color:{Game.turn}')
+        if Game.check_tedad_zamin() is False and Game.tas_count <= 3:
             Game.tas_count += 1
             Game.tas = randint(1, 6)
+            Game.Ludo.ui.lbl_tas.setText(str(Game.tas))
             if Game.tas == 6:
+                print('part 2')
                 Game.tas_count = 0
-                    # Ludo.ui.pushButton_tas.setEnabled(False)
+                Game.Ludo.ui.pushButton_tas.setEnabled(False)
             elif Game.tas_count == 3:
-                Game.tas_count = 0
+                print('part 3')
                 Game.next_turn()
+                Game.tas_count = 0
         else:
             Game.tas = randint(1, 6)
             Game.tas_count = 0
-
+            Game.Ludo.ui.pushButton_tas.setEnabled(False)
+            Game.Ludo.ui.lbl_tas.setText(str(Game.tas))
 
     @staticmethod
     def check_tedad_zamin():

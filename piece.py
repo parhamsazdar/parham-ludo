@@ -8,7 +8,7 @@ class Piece(QPushButton):
     Blue = []
     Yellow = []
 
-    def __init__(self, color, piece_store,*__args):
+    def __init__(self, color, piece_store, *__args):
         super().__init__(*__args)
         self.color = color
         self.on_board = False
@@ -26,47 +26,38 @@ class Piece(QPushButton):
         elif self.color == 'yellow':
             Piece.Yellow.append(self)
 
-    def move_piece(self,piece):
-        print(Game.turn)
-        # print('this is condiyion : 1 ', Game.condination_1(piece))
-        # print('this is condiyion : 2 ', Game.condition_2(piece))
-        # if Game.condition_2(piece):
-        #     print('this is condiyion : 2-1 ', Game.condition_2_1(piece))
-        #     print('this is condiyion : 2-2 ', Game.condition_2_2(piece))
-        #     print('this is condiyion : 2-3 ', Game.condition_2_3(piece))
-        #     print('this is condiyion : 2-home ', Game.condition_2_home(piece))
-        #     print('this is condiyion : 2-last ', Game.condition_last(piece))
-        # # part1
-        Game.tas_count=0
+    def move_piece(self, piece):
         if Game.condination_1(piece):
+            Game.Ludo.ui.pushButton_tas.setEnabled(True)
             Game.players[Game.choose_player()].pos[piece] = Game.players[Game.choose_player()].start_move
             piece.removing(piece, Game.players[Game.choose_player()])
-            piece.move(Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][0], Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][1])
+            piece.move(Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][0],
+                       Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][1])
             piece.record(piece, Game.players[Game.choose_player()])
             piece.initial_operation(piece, Game.players[Game.choose_player()])
-            print('im in 1')
             Game.tas = 0
         # part2
         elif Game.condition_2(piece):
+            Game.Ludo.ui.pushButton_tas.setEnabled(True)
             if Game.condition_2_1(piece):
                 piece.clearing(piece)
                 Game.players[Game.choose_player()].pos[piece] += Game.tas
-                piece.move(Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][0], Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][1])
+                piece.move(Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][0],
+                           Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][1])
                 piece.removing(piece, Game.players[Game.choose_player()])
                 piece.record(piece, Game.players[Game.choose_player()])
                 piece.check_award()
-                print('im in 2_1')
                 Game.tas = 0
 
-            elif Game.condition_2_2( piece):
+            elif Game.condition_2_2(piece):
                 piece.emergency = False
-                piece.clearing( piece)
+                piece.clearing(piece)
                 Game.players[Game.choose_player()].pos[piece] += (Game.tas - 24)
-                piece.move(Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][0], Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][1])
+                piece.move(Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][0],
+                           Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][1])
                 piece.removing(piece, Game.players[Game.choose_player()])
-                piece.record(piece,Game.players[Game.choose_player()])
+                piece.record(piece, Game.players[Game.choose_player()])
                 piece.check_award()
-                print('im in 2_2')
                 Game.tas = 0
 
             # part2_3
@@ -75,18 +66,17 @@ class Piece(QPushButton):
                 piece.clearing(piece)
                 Game.players[Game.choose_player()].pos[piece] += Game.tas
                 piece.removing(piece, Game.players[Game.choose_player()])
-                piece.move(Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][0], Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][1])
-                piece.record(piece,Game.players[Game.choose_player()])
+                piece.move(Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][0],
+                           Game.board[Game.players[Game.choose_player()].pos[piece]]['coord'][1])
+                piece.record(piece, Game.players[Game.choose_player()])
                 piece.check_award()
-                print('im in 2_3')
                 Game.tas = 0
             # part2_4
             elif Game.condition_2_home(piece):
-                piece.move(Game.players[Game.choose_player()].home[0],Game.players[Game.choose_player()].home[1])
+                piece.move(Game.players[Game.choose_player()].home[0], Game.players[Game.choose_player()].home[1])
                 piece.clearing(piece)
                 piece.final_operation(piece, Game.players[Game.choose_player()])
                 piece.check_award()
-                print('im in 2_home')
                 Game.tas = 0
             # part2_5
             elif Game.condition_last(piece):
@@ -96,14 +86,6 @@ class Piece(QPushButton):
         else:
             print(Game.turn)
             print(piece.color)
-
-        print(Game.turn)
-        # print('tedad mohre ha zamin : ', Game.players[Game.choose_player()].number_on_board)
-        # print('rang mohre ha zamin : ', Game.players[Game.choose_player()].pos)
-        # print('game turn is : ', Game.turn)
-        # print('game turn is : ', Game.players[Game.choose_player()])
-        # print(Game.board)
-
 
     def clearing(self, piece):
         Game.board[Game.players[Game.choose_player()].pos[piece]]['piece'] = None
@@ -124,22 +106,20 @@ class Piece(QPushButton):
             if piece.color == i.color:
                 return i
 
-    def record(self, piece,player):
+    def record(self, piece, player):
         Game.board[player.pos[piece]]['piece'] = piece
 
-
-    def initial_operation(self, piece,player):
+    def initial_operation(self, piece, player):
 
         piece.on_board = True
-        player.number_on_board+=1
+        player.number_on_board += 1
 
-
-    def final_operation(self, piece,player):
+    def final_operation(self, piece, player):
         self.clearing(piece)
         player.home_number += 1
-        player.number_on_board-= 1
+        player.number_on_board -= 1
+        Game.Ludo.ui.piece.setEnabled(False)
 
     def check_award(self):
         if Game.tas != 6:
             Game.next_turn()
-

@@ -44,7 +44,8 @@ class Ludo:
         self.red_pos = {self.ui.red_1: 0, self.ui.red_2: 0, self.ui.red_3: 0, self.ui.red_4: 0}
         # a=A(self.ui.blue_1,'blue')
 
-
+        self.ui.yellow_1
+        self.ui.yellow_2
         self.red_blue = {self.ui.red_1: [False, 'red', True],
                          self.ui.red_2: [False, 'red', True],
                          self.ui.red_3: [False, 'red', True],
