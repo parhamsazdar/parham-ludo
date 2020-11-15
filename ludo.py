@@ -282,7 +282,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 "border-radius:30px;\n"
 "color: rgb(255, 255, 255);")
         self.red_1.setObjectName("red_1")
-        self.yellow_1 = QtWidgets.QPushButton(self.centralwidget)
+        self.yellow_1 = Piece('yellow',(900,530),self.centralwidget)
         self.yellow_1.setGeometry(QtCore.QRect(900, 530, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -321,7 +321,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 "border-radius:30px;\n"
 "color: rgb(255, 255, 255);")
         self.red_4.setObjectName("red_4")
-        self.red_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.red_2 = Piece('red',(310,100),self.centralwidget)
         self.red_2.setGeometry(QtCore.QRect(310, 100, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -386,7 +386,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 "border-radius:30px;\n"
 "color: rgb(255, 255, 255);")
         self.green_3.setObjectName("green_3")
-        self.blue_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.blue_2 = Piece('blue',(320,620),self.centralwidget)
         self.blue_2.setGeometry(QtCore.QRect(320, 620, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -425,7 +425,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 "border-radius:30px;\n"
 "color: rgb(255, 255, 255);")
         self.blue_3.setObjectName("blue_3")
-        self.yellow_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.yellow_2 = Piece('yellow',(810,530),self.centralwidget)
         self.yellow_2.setGeometry(QtCore.QRect(810, 530, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")

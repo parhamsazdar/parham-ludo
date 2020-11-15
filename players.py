@@ -7,7 +7,6 @@ class Players:
         self.name = name
         self.color = color
         self.number = number
-        self.confrim = False
         self.number_on_board = 0
         self.home_number = 0
         self.pos = {}
@@ -44,11 +43,11 @@ class Players:
 
     def setup_home_direction(self):
         if self.color == 'blue':
-            self.home = (610, 530)
+            self.home = (610, 530,25)
         elif self.color == 'red':
-            self.home = (400, 360)
+            self.home = (400, 360,7)
         elif self.color == 'green ':
-            self.home = (600, 170)
+            self.home = (600, 170,13)
         elif self.color == 'yellow':
-            self.home = (810, 370)
+            self.home = (810, 370,19)
 

@@ -28,11 +28,10 @@ class Game:
     turn = None
     players = None
     players_color = []
-    main_player = None
 
     def __init__(self, *args):
-        Game.players = args
-        for i in args:
+        Game.players = list(args)
+        for i in Game.players:
             Game.players_color.append(i.color)
         Game.turn = Game.players_color[0]
 
@@ -47,9 +46,9 @@ class Game:
 
     @staticmethod
     def choose_player():
-        for i in Game.players:
-            if i.color == Game.turn:
-                Game.main_player = i
+        for i in range(len(Game.players)):
+            if Game.players[i].color == Game.turn:
+                return i
 
     @staticmethod
     def check_tedad_home():
@@ -59,71 +58,81 @@ class Game:
 
     @staticmethod
     def roll():
-        Game.check_tedad_zamin()
-        if Game.main_player.confirm is False and Game.tas_count <= 3:
+        print(Game.players[Game.choose_player()].name)
+        if Game.check_tedad_zamin() is False and Game.tas_count<=3:
             Game.tas_count += 1
             Game.tas = randint(1, 6)
             if Game.tas == 6:
                 Game.tas_count = 0
-                # self.ui.pushButton_tas.setEnabled(False)
+                    # Ludo.ui.pushButton_tas.setEnabled(False)
             elif Game.tas_count == 3:
-                Game.next_turn()
                 Game.tas_count = 0
+                Game.next_turn()
         else:
             Game.tas = randint(1, 6)
-            # self.ui.lbl_tas.setText(str(self.tas))
-            # self.ui.pushButton_tas.setEnabled(False)
             Game.tas_count = 0
+
 
     @staticmethod
     def check_tedad_zamin():
-        Game.choose_player()
-        if Game.main_player.number_on_board > 0:
-            Game.main_player.confirm = True
+        if Game.players[Game.choose_player()].number_on_board > 0:
+            return True
         else:
-            Game.main_player.confirm = False
+            return False
 
     @staticmethod
     def condination_1(piece):
-        if (Game.tas == 6 and Game.main_player.confrim is False) or (
-                Game.tas == 6 and Game.main_player.confrim is True and
-                piece.on_board is False and
-                Game.board[Game.main_player.start_move]['piece'] not in Game.main_player.pos):
-            return True
+        if Game.turn == piece.color:
+            if (Game.tas == 6 and Game.check_tedad_zamin() is False) or (
+                    Game.tas == 6 and Game.check_tedad_zamin() is True and
+                    piece.on_board is False and
+                    Game.board[Game.players[Game.choose_player()].start_move]['piece'] not in Game.players[
+                        Game.choose_player()].pos):
+                return True
 
     @staticmethod
     def condition_2(piece):
-        if piece.on_board and Game.main_player.confrim:
-            return True
+        if Game.turn == piece.color:
+            if piece.on_board and Game.check_tedad_zamin():
+                return True
 
     @staticmethod
     def condition_2_1(piece):
-        if Game.main_player.pos[piece] + Game.tas >= Game.main_player.finally_move and Game.main_player.pos[
+        if Game.players[Game.choose_player()].pos[piece] + Game.tas >= Game.players[
+            Game.choose_player()].finally_move and Game.players[Game.choose_player()].pos[
             piece] + Game.tas <= 24 and piece.emergency and \
-                Game.board[Game.main_player.pos[piece] + Game.tas]['piece'] not in Game.main_player.pos:
+                Game.board[Game.players[Game.choose_player()].pos[piece] + Game.tas]['piece'] not in \
+                Game.players[Game.choose_player()].pos:
             return True
 
     @staticmethod
     def condition_2_2(piece):
-        if Game.main_player.pos[piece] + Game.tas > 24 and Game.main_player.pos[
-            piece] + Game.tas - 24 < Game.main_player.finally_move and \
-                Game.board[Game.main_player.pos[piece] + Game.tas - 24]['piece'] not in Game.main_player.pos:
+        if Game.players[Game.choose_player()].pos[piece] + Game.tas > 24 and Game.players[Game.choose_player()].pos[
+            piece] + Game.tas - 24 < Game.players[Game.choose_player()].finally_move and \
+                Game.board[Game.players[Game.choose_player()].pos[piece] + Game.tas - 24]['piece'] not in Game.players[
+            Game.choose_player()].pos:
             return True
 
     @staticmethod
     def condition_2_3(piece):
-        if Game.main_player.pos[piece] + Game.tas < Game.main_player.start_move and \
-                Game.board[Game.main_player.pos[piece] + Game.tas][
-                    'piece'] not in Game.main_player.pos and piece.on_board:
+
+        if Game.players[Game.choose_player()].pos[piece] + Game.tas < Game.players[Game.choose_player()].start_move and \
+                Game.board[Game.players[Game.choose_player()].pos[piece] + Game.tas][
+                    'piece'] not in Game.players[Game.choose_player()].pos and piece.on_board:
             return True
 
     @staticmethod
     def condition_2_home(piece):
-        if Game.main_player.pos[piece] + Game.tas == Game.main_player.home:
+
+        if Game.players[Game.choose_player()].pos[piece] + Game.tas == Game.players[Game.choose_player()].home[2]:
             return True
 
     @staticmethod
     def condition_last(piece):
-        if Game.main_player.pos[piece] + Game.tas >= 7 and \
-                piece and Game.main_player.number == 1:
+        if Game.players[Game.choose_player()].color == 'blue':
+            z = 25
+        else:
+            z = Game.players[Game.choose_player()].start_move
+        if Game.players[Game.choose_player()].pos[piece] + Game.tas >= z and \
+                piece and Game.players[Game.choose_player()].number_on_board == 1:
             return True
