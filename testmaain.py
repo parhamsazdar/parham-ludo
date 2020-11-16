@@ -1,25 +1,49 @@
 import sys
 from PyQt5 import QtWidgets
 from ludo import Ui_MainWindow
-from players import Players
 from Gameclass import Game
 from functools import partial
+from login_gui import Login
 
 
 class Ludo:
-    player_1 = None
 
     def __init__(self):
         app = QtWidgets.QApplication(sys.argv)
         MainWindow = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(MainWindow)
-        self.setupplayers()
-        game = Game(self, Ludo.player_1, Ludo.player_3, Ludo.player_2)
+        self.lbl=[self.ui.lbl_player_1,self.ui.lbl_player_2,self.ui.lbl_player_3,self.ui.lbl_player_4]
+        self.ui.pushButton_tas.setEnabled(False)
+        self.ui.s.triggered.connect(self.start_game)
         self.click_func()
-        self.set_name_player()
+        self.Login=None
         MainWindow.show()
+        self.ui.add.triggered.connect(self.add_player)
+        self.ui.blue_1.setHidden(False)
         app.exec_()
+
+    def start_game(self):
+        if len(Login.players) < 2:
+            self.error_min_player()
+        else:
+            game = Game(self, Login.players)
+            self.ui.add.setEnabled(False)
+            self.set_name_player()
+
+    def error_min_player(self):
+        msg = QtWidgets.QMessageBox()
+        msgBox = msg.critical(self.ui, 'Error', 'You must add atleast 2 users')
+        if msgBox == QtWidgets.QMessageBox.Ok:
+            msg.close()
+
+    def add_player(self):
+        dialog = QtWidgets.QDialog()
+        dialog.ui = Login()
+        dialog.ui.setupUi(dialog)
+        dialog.exec_()
+        dialog.show()
+
 
     def click_func(self):
         self.ui.blue_1.clicked.connect(partial(self.ui.blue_1.move_piece, self.ui.blue_1))
@@ -31,18 +55,11 @@ class Ludo:
         self.ui.pushButton_tas.clicked.connect(Game.roll)
 
     def set_name_player(self):
-        self.ui.lbl_player_1.setText(Game.players[0].name)
-        self.ui.lbl_player_1.setStyleSheet(f'color : {Game.players[0].color}')
-        self.ui.lbl_player_2.setText(Game.players[1].name)
-        self.ui.lbl_player_2.setStyleSheet(f'color : {Game.players[1].color}')
-        self.ui.lbl_player_3.setText(Game.players[2].name)
-        self.ui.lbl_player_3.setStyleSheet(f'color : {Game.players[2].color}')
-        self.ui.lbl_player_4.setText('')
+        self.lbl=self.lbl[:len(Login.players)]
+        for i in range(len(self.lbl)):
+            self.lbl[i].setText(Game.players[i].name)
+            self.lbl[i].setStyleSheet(f'color : {Game.players[i].color}')
 
-    def setupplayers(self):
-        Ludo.player_1 = Players('parham', 'red', 1)
-        Ludo.player_2 = Players('hasan', 'blue', 2)
-        Ludo.player_3 = Players('omid', 'yellow', 3)
 
 
 a = Ludo()

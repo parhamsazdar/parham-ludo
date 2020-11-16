@@ -1,5 +1,6 @@
 from random import randint
 
+
 class Game:
     board = [0, {'coord': (490, 620), 'piece': None}, {'coord': (490, 540), 'piece': None},
              {'coord': (490, 450), 'piece': None},
@@ -23,11 +24,23 @@ class Game:
     players = None
     players_color = []
 
-    def __init__(self, Ludo, *args):
+    def __init__(self, Ludo, players):
+
         Game.Ludo = Ludo
-        Game.players = list(args)
+        Game.players = players
+        print(Game.players)
         for i in Game.players:
             Game.players_color.append(i.color)
+        Game.setHidden()
+        Game.Ludo.ui.pushButton_tas.setEnabled(True)
+
+    @staticmethod
+    def setHidden():
+        for i in Game.players:
+            for j in i.pos:
+                j.setHidden(True)
+
+
 
     @staticmethod
     def next_turn():
