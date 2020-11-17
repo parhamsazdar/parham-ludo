@@ -4,24 +4,43 @@ from ludo import Ui_MainWindow
 from Gameclass import Game
 from functools import partial
 from login_gui import Login
+from piece import Piece
+from reset import reset
+from winers_ import Winers
 
 
 class Ludo:
 
     def __init__(self):
-        app = QtWidgets.QApplication(sys.argv)
+        self.app = QtWidgets.QApplication(sys.argv)
         MainWindow = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(MainWindow)
-        self.lbl=[self.ui.lbl_player_1,self.ui.lbl_player_2,self.ui.lbl_player_3,self.ui.lbl_player_4]
+        self.Login = None
+        self.lbl = [self.ui.lbl_player_1, self.ui.lbl_player_2, self.ui.lbl_player_3, self.ui.lbl_player_4]
         self.ui.pushButton_tas.setEnabled(False)
-        self.ui.s.triggered.connect(self.start_game)
         self.click_func()
-        self.Login=None
         MainWindow.show()
-        self.ui.add.triggered.connect(self.add_player)
-        self.ui.blue_1.setHidden(False)
-        app.exec_()
+        self.add_player()
+        self.app.exec_()
+
+    def new_game(self):
+        msg = QtWidgets.QMessageBox()
+        msgBox = msg.question(self.ui, 'New Game', 'Are you sure to setup new game?',
+                              QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+        if msgBox == QtWidgets.QMessageBox.Yes:
+            self.reset()
+            msg.close()
+        else:
+            msg.close()
+
+    def reset(self):
+        reset(Game, Piece, Login, self)
+
+    def diable_piece(self):
+        for i in Piece.total_piece:
+            if i.color not in Game.players_color:
+                i.setHidden(True)
 
     def start_game(self):
         if len(Login.players) < 2:
@@ -30,6 +49,7 @@ class Ludo:
             game = Game(self, Login.players)
             self.ui.add.setEnabled(False)
             self.set_name_player()
+            self.diable_piece()
 
     def error_min_player(self):
         msg = QtWidgets.QMessageBox()
@@ -44,6 +64,16 @@ class Ludo:
         dialog.exec_()
         dialog.show()
 
+    def winers(self):
+        dialog = QtWidgets.QDialog()
+        dialog.ui = Winers(self)
+        dialog.ui.setupUi(dialog)
+        dialog.ui.lbl = dialog.ui.lbl[:len(Game.players)]
+        for i in range(len(dialog.ui.lbl)):
+            dialog.ui.lbl[i].setText(f'{i + 1}.{Game.winers[i].name}')
+            dialog.ui.lbl[i].setStyleSheet(f'color : {Game.winers[i].color}')
+        dialog.exec_()
+        dialog.show()
 
     def click_func(self):
         self.ui.blue_1.clicked.connect(partial(self.ui.blue_1.move_piece, self.ui.blue_1))
@@ -52,14 +82,17 @@ class Ludo:
         self.ui.blue_2.clicked.connect(partial(self.ui.blue_2.move_piece, self.ui.blue_2))
         self.ui.yellow_1.clicked.connect(partial(self.ui.yellow_1.move_piece, self.ui.yellow_1))
         self.ui.yellow_2.clicked.connect(partial(self.ui.yellow_2.move_piece, self.ui.yellow_2))
+        self.ui.add.triggered.connect(self.add_player)
+        self.ui.newgame.triggered.connect(self.new_game)
+        self.ui.s.triggered.connect(self.start_game)
         self.ui.pushButton_tas.clicked.connect(Game.roll)
 
     def set_name_player(self):
-        self.lbl=self.lbl[:len(Login.players)]
+        self.lbl = self.lbl[:len(Login.players)]
         for i in range(len(self.lbl)):
-            self.lbl[i].setText(Game.players[i].name)
+            self.lbl[i].setText(f'{i + 1}.{Game.players[i].name}')
             self.lbl[i].setStyleSheet(f'color : {Game.players[i].color}')
 
 
-
-a = Ludo()
+if __name__ == '__main__':
+    Ludo()

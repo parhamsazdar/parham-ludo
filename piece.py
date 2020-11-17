@@ -7,7 +7,7 @@ class Piece(QPushButton):
     Green = []
     Blue = []
     Yellow = []
-
+    total_piece=[]
     def __init__(self, color, piece_store, *__args):
         super().__init__(*__args)
         self.color = color
@@ -15,7 +15,8 @@ class Piece(QPushButton):
         self.emergency = True
         self.piece_store = piece_store
         self.add_color_list()
-
+        self.setHidden(True)
+        Piece.total_piece.append(self)
     def add_color_list(self):
         if self.color == 'blue':
             Piece.Blue.append(self)
@@ -118,7 +119,7 @@ class Piece(QPushButton):
         self.clearing(piece)
         player.home_number += 1
         player.number_on_board -= 1
-        Game.Ludo.ui.piece.setEnabled(False)
+        piece.setEnabled(False)
 
     def check_award(self):
         if Game.tas != 6:

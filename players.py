@@ -3,10 +3,9 @@ from piece import Piece
 
 
 class Players:
-    def __init__(self, name, color, number):
+    def __init__(self, name, color):
         self.name = name
         self.color = color
-        self.number = number
         self.number_on_board = 0
         self.home_number = 0
         self.pos = {}
@@ -36,7 +35,7 @@ class Players:
             self.start_move = 1
         elif self.color == 'red':
             self.start_move = 7
-        elif self.color == 'green ':
+        elif self.color == 'green':
             self.start_move = 13
         elif self.color == 'yellow':
             self.start_move = 19

@@ -10,6 +10,7 @@ def reset(class_1,class_2,class_3,class_4):
     for i in class_2.total_piece:
         i.move(i.piece_store[0],i.piece_store[1])
         i.setHidden(True)
+        i.setEnabled(True)
 
     #part_login_player
     class_3.players=[]
