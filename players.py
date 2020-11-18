@@ -1,5 +1,7 @@
-
 from piece import Piece
+
+"""This is players module that contain player class"""
+""" This module setups players piece and all the related things"""
 
 
 class Players:
@@ -42,11 +44,10 @@ class Players:
 
     def setup_home_direction(self):
         if self.color == 'blue':
-            self.home = (610, 530,25)
+            self.home = (610, 530, 25)
         elif self.color == 'red':
-            self.home = (400, 360,7)
+            self.home = (400, 360, 7)
         elif self.color == 'green':
-            self.home = (600, 170,13)
+            self.home = (600, 170, 13)
         elif self.color == 'yellow':
-            self.home = (810, 370,19)
-
+            self.home = (810, 370, 19)

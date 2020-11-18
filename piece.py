@@ -1,6 +1,10 @@
 from Gameclass import Game
 from PyQt5.QtWidgets import QPushButton
 
+"""This module contains piece class and piece class is subcalss og QPushbuttom"""
+"""In this game all the pieces are buttom """
+"""This class contains most important func in ludo game which name is move_piece for moving the piece on the board"""
+
 
 class Piece(QPushButton):
     Red = []
@@ -90,9 +94,11 @@ class Piece(QPushButton):
             print(Game.turn)
             print(piece.color)
 
+    # clear the piece on the board
     def clearing(self, piece):
         Game.board[Game.players[Game.choose_player()].pos[piece]]['piece'] = None
 
+    # This remove piece from game board
     def removing(self, piece, player):
         if Game.board[player.pos[piece]]['piece'] not in player.pos and Game.board[player.pos[piece]][
             'piece'] is not None:
@@ -104,16 +110,17 @@ class Piece(QPushButton):
             Game.board[player.pos[piece]]['piece'] = None
             del self.who_is(x).pos[x]
 
+    # know which player is by its piece
     def who_is(self, piece):
         for i in Game.players:
             if piece.color == i.color:
                 return i
 
+    # record the piece on the board game
     def record(self, piece, player):
         Game.board[player.pos[piece]]['piece'] = piece
 
     def initial_operation(self, piece, player):
-
         piece.on_board = True
         player.number_on_board += 1
 
@@ -124,6 +131,7 @@ class Piece(QPushButton):
         piece.setEnabled(False)
         Game.set_home_number()
 
+    # check if Game.tas is 6 for price of player
     def check_award(self):
         if Game.tas != 6:
             Game.next_turn()

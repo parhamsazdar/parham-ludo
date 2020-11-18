@@ -8,6 +8,9 @@ from piece import Piece
 from reset import reset
 from winers_ import Winers
 
+"""This is a main class that contain a buttom func and all ludo game 
+Visual effects"""
+
 
 class Ludo:
 
@@ -18,13 +21,15 @@ class Ludo:
         self.ui.setupUi(MainWindow)
         self.Login = None
         self.lbl = [self.ui.lbl_player_1, self.ui.lbl_player_2, self.ui.lbl_player_3, self.ui.lbl_player_4]
-        self.lbl_home_number=[self.ui.lbl_blue_home,self.ui.lbl_red_home,self.ui.lbl_green_home,self.ui.lbl_blue_home,self.ui.lbl_yellow_home]
+        self.lbl_home_number = [self.ui.lbl_blue_home, self.ui.lbl_red_home, self.ui.lbl_green_home,
+                                self.ui.lbl_blue_home, self.ui.lbl_yellow_home]
         self.ui.pushButton_tas.setEnabled(False)
         self.click_func()
         MainWindow.show()
         self.add_player()
         self.app.exec_()
 
+    # new_game_messeage_dialog
     def new_game(self):
         msg = QtWidgets.QMessageBox()
         msgBox = msg.question(self.ui, 'New Game', 'Are you sure to setup new game?',
@@ -35,14 +40,17 @@ class Ludo:
         else:
             msg.close()
 
+    # Reset_Game_func
     def reset(self):
         reset(Game, Piece, Login, self)
 
+    # Hide_unselected_buttons
     def diable_piece(self):
         for i in Piece.total_piece:
             if i.color not in Game.players_color:
                 i.setHidden(True)
 
+    # controll_number_player_then_start_the_game
     def start_game(self):
         if len(Login.players) < 2:
             self.error_min_player()
@@ -52,19 +60,22 @@ class Ludo:
             self.set_name_player()
             self.diable_piece()
 
+    # the dialog for show the messeage of min error
     def error_min_player(self):
         msg = QtWidgets.QMessageBox()
         msgBox = msg.critical(self.ui, 'Error', 'You must add atleast 2 users')
         if msgBox == QtWidgets.QMessageBox.Ok:
             msg.close()
 
+    # connect to login dialog for adding player
     def add_player(self):
         dialog = QtWidgets.QDialog()
-        dialog.ui = Login(self)
+        dialog.ui = Login()
         dialog.ui.setupUi(dialog)
         dialog.exec_()
         dialog.show()
 
+    # connect to the winers dialog for showing winers ranks
     def winers(self):
         dialog = QtWidgets.QDialog()
         dialog.ui = Winers(self)
@@ -76,6 +87,7 @@ class Ludo:
         dialog.exec_()
         dialog.show()
 
+    # connect the buttoms to related func
     def click_func(self):
         self.ui.green_4.clicked.connect(partial(self.ui.green_4.move_piece, self.ui.green_4))
         self.ui.green_3.clicked.connect(partial(self.ui.green_3.move_piece, self.ui.green_3))
@@ -98,6 +110,7 @@ class Ludo:
         self.ui.s.triggered.connect(self.start_game)
         self.ui.pushButton_tas.clicked.connect(Game.roll)
 
+    # for setting name of player on ludo gui
     def set_name_player(self):
         self.lbl = self.lbl[:len(Login.players)]
         for i in range(len(self.lbl)):

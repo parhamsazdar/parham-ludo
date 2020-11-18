@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
+"""This module is contain winners Gui and all related func"""
 
 class Winers(QtWidgets.QMainWindow, QtWidgets.QDialog):
     def __init__(self, par):

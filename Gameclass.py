@@ -1,6 +1,9 @@
 from random import randint
 from datetime import datetime
 
+"""This module contains the most import class which name is Game class"""
+"""Game class contains all the rules that related to the ludo game"""
+
 
 class Game:
     board = [0, {'coord': (490, 620), 'piece': None}, {'coord': (490, 540), 'piece': None},
@@ -27,7 +30,6 @@ class Game:
     winers = []
 
     def __init__(self, Ludo, players):
-
         Game.Ludo = Ludo
         Game.players = players
         print(Game.players)
@@ -37,25 +39,29 @@ class Game:
         Game.Ludo.ui.pushButton_tas.setEnabled(True)
         print(Game.players_color)
 
+    # visible the players piece on main gui
     @staticmethod
     def setHidden():
         for i in Game.players:
             for j in i.pos:
                 j.setHidden(False)
 
+    # This func handle the turn of the game
     @staticmethod
     def next_turn():
-
         Game.turn = Game.players_color[0]
         Game.check_number_home()
         Game.players_color.append(Game.players_color.pop(0))
 
+    # this func choose who is the main player of the game
     @staticmethod
     def choose_player():
         for i in range(len(Game.players)):
             if Game.players[i].color == Game.turn:
                 return i
 
+    # check number of piece on home and fill the the winers list
+    # if game finesh prepare the winers gui and file of winers
     @staticmethod
     def check_number_home():
         for i in Game.players:
@@ -70,6 +76,7 @@ class Game:
                 f.write(winers)
             Game.Ludo.winers()
 
+    # roll the dice
     @staticmethod
     def roll():
         if Game.turn is None:
@@ -92,12 +99,12 @@ class Game:
                 Game.next_turn()
                 Game.tas_count = 0
         else:
-
             Game.tas = randint(1, 6)
             Game.tas_count = 0
             Game.Ludo.ui.pushButton_tas.setEnabled(False)
             Game.set_color()
 
+    # set the lable_home of main gui
     @staticmethod
     def set_home_number():
         if Game.players[Game.choose_player()].home_number > 0:
@@ -110,6 +117,7 @@ class Game:
             if Game.players[Game.choose_player()].color == 'yellow':
                 Game.Ludo.ui.lbl_yellow_home.setText(str(Game.players[Game.choose_player()].home_number))
 
+    # for seting lbl of guid color in main gui
     @staticmethod
     def set_color():
         if Game.tas != 6:
@@ -127,6 +135,8 @@ class Game:
             return True
         else:
             return False
+
+    """The funcs below are about the condition that players experiece"""
 
     @staticmethod
     def condination_1(piece):
