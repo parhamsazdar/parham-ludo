@@ -20,5 +20,8 @@ def reset(class_1,class_2,class_3,class_4):
     class_4.ui.add.setEnabled(True)
     class_4.ui.lbl_turns.setText('')
     class_4.ui.lbl_tas.setText('')
+    class_4.ui.label_guid.setText('')
+    for i in class_4.lbl_home_number:
+        i.setText('')
 
 

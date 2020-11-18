@@ -18,6 +18,7 @@ class Ludo:
         self.ui.setupUi(MainWindow)
         self.Login = None
         self.lbl = [self.ui.lbl_player_1, self.ui.lbl_player_2, self.ui.lbl_player_3, self.ui.lbl_player_4]
+        self.lbl_home_number=[self.ui.lbl_blue_home,self.ui.lbl_red_home,self.ui.lbl_green_home,self.ui.lbl_blue_home,self.ui.lbl_yellow_home]
         self.ui.pushButton_tas.setEnabled(False)
         self.click_func()
         MainWindow.show()
@@ -59,7 +60,7 @@ class Ludo:
 
     def add_player(self):
         dialog = QtWidgets.QDialog()
-        dialog.ui = Login()
+        dialog.ui = Login(self)
         dialog.ui.setupUi(dialog)
         dialog.exec_()
         dialog.show()
@@ -76,6 +77,16 @@ class Ludo:
         dialog.show()
 
     def click_func(self):
+        self.ui.green_4.clicked.connect(partial(self.ui.green_4.move_piece, self.ui.green_4))
+        self.ui.green_3.clicked.connect(partial(self.ui.green_3.move_piece, self.ui.green_3))
+        self.ui.green_2.clicked.connect(partial(self.ui.green_2.move_piece, self.ui.green_2))
+        self.ui.green_1.clicked.connect(partial(self.ui.green_1.move_piece, self.ui.green_1))
+        self.ui.yellow_4.clicked.connect(partial(self.ui.yellow_4.move_piece, self.ui.yellow_4))
+        self.ui.yellow_3.clicked.connect(partial(self.ui.yellow_3.move_piece, self.ui.yellow_3))
+        self.ui.red_4.clicked.connect(partial(self.ui.red_4.move_piece, self.ui.red_4))
+        self.ui.red_3.clicked.connect(partial(self.ui.red_3.move_piece, self.ui.red_3))
+        self.ui.blue_4.clicked.connect(partial(self.ui.blue_4.move_piece, self.ui.blue_4))
+        self.ui.blue_3.clicked.connect(partial(self.ui.blue_3.move_piece, self.ui.blue_3))
         self.ui.blue_1.clicked.connect(partial(self.ui.blue_1.move_piece, self.ui.blue_1))
         self.ui.red_1.clicked.connect(partial(self.ui.red_1.move_piece, self.ui.red_1))
         self.ui.red_2.clicked.connect(partial(self.ui.red_2.move_piece, self.ui.red_2))

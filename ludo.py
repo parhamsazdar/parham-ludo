@@ -12,12 +12,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from piece import Piece
 
 class Ui_MainWindow(QtWidgets.QMainWindow):
-
     def setupUi(self, MainWindow):
-
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1030, 811)
+        MainWindow.resize(1047, 844)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("Capture.PNG"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);")
+        MainWindow.setIconSize(QtCore.QSize(100, 80))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -34,8 +36,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setFamily("MS Sans Serif")
         font.setPointSize(12)
         self.lbl_player_1.setFont(font)
-        self.lbl_player_1.setStyleSheet("\n"
-"color: rgb(85, 170, 255);")
+        self.lbl_player_1.setStyleSheet("")
+        self.lbl_player_1.setText("")
         self.lbl_player_1.setObjectName("lbl_player_1")
         self.lbl_player_2 = QtWidgets.QLabel(self.groupBox)
         self.lbl_player_2.setGeometry(QtCore.QRect(41, 133, 107, 29))
@@ -43,7 +45,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setFamily("MS Sans Serif")
         font.setPointSize(12)
         self.lbl_player_2.setFont(font)
-        self.lbl_player_2.setStyleSheet("color: rgb(255, 0, 0);")
+        self.lbl_player_2.setStyleSheet("")
+        self.lbl_player_2.setText("")
         self.lbl_player_2.setObjectName("lbl_player_2")
         self.lbl_player_3 = QtWidgets.QLabel(self.groupBox)
         self.lbl_player_3.setGeometry(QtCore.QRect(41, 204, 107, 29))
@@ -51,7 +54,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setFamily("MS Sans Serif")
         font.setPointSize(12)
         self.lbl_player_3.setFont(font)
-        self.lbl_player_3.setStyleSheet("color: rgb(0, 255, 0);")
+        self.lbl_player_3.setStyleSheet("")
+        self.lbl_player_3.setText("")
         self.lbl_player_3.setObjectName("lbl_player_3")
         self.lbl_player_4 = QtWidgets.QLabel(self.groupBox)
         self.lbl_player_4.setGeometry(QtCore.QRect(41, 276, 107, 29))
@@ -59,201 +63,265 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setFamily("MS Sans Serif")
         font.setPointSize(12)
         self.lbl_player_4.setFont(font)
-        self.lbl_player_4.setStyleSheet("color: rgb(255, 227, 19);")
+        self.lbl_player_4.setStyleSheet("")
+        self.lbl_player_4.setText("")
         self.lbl_player_4.setObjectName("lbl_player_4")
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_2.setGeometry(QtCore.QRect(10, 410, 261, 331))
+        self.groupBox_2.setGeometry(QtCore.QRect(10, 410, 261, 361))
         self.groupBox_2.setTitle("")
         self.groupBox_2.setObjectName("groupBox_2")
-        self.lbl_turns = QtWidgets.QLabel(self.groupBox_2)
-        self.lbl_turns.setEnabled(True)
-        self.lbl_turns.setGeometry(QtCore.QRect(90, 40, 151, 51))
-        self.lbl_turns.setObjectName("lbl_turns")
         self.pushButton_tas = QtWidgets.QPushButton(self.groupBox_2)
-        self.pushButton_tas.setGeometry(QtCore.QRect(50, 110, 131, 61))
+        self.pushButton_tas.setGeometry(QtCore.QRect(50, 80, 131, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
         font.setPointSize(12)
         self.pushButton_tas.setFont(font)
+        self.pushButton_tas.setStyleSheet("background-color: rgb(255, 255, 255);")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("icons8-dice-24.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_tas.setIcon(icon1)
+        self.pushButton_tas.setIconSize(QtCore.QSize(90, 90))
         self.pushButton_tas.setObjectName("pushButton_tas")
         self.lbl_tas = QtWidgets.QLabel(self.groupBox_2)
-        self.lbl_tas.setGeometry(QtCore.QRect(50, 200, 141, 61))
+        self.lbl_tas.setGeometry(QtCore.QRect(50, 140, 131, 51))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.lbl_tas.setFont(font)
-        self.lbl_tas.setText("")
+        self.lbl_tas.setAlignment(QtCore.Qt.AlignCenter)
         self.lbl_tas.setObjectName("lbl_tas")
+        self.lbl_turns = QtWidgets.QLabel(self.groupBox_2)
+        self.lbl_turns.setGeometry(QtCore.QRect(40, 10, 151, 61))
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setItalic(True)
+        font.setWeight(75)
+        self.lbl_turns.setFont(font)
+        self.lbl_turns.setText("")
+        self.lbl_turns.setObjectName("lbl_turns")
+        self.label_guid = QtWidgets.QLabel(self.groupBox_2)
+        self.label_guid.setGeometry(QtCore.QRect(10, 210, 231, 71))
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_guid.setFont(font)
+        self.label_guid.setText("")
+        self.label_guid.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_guid.setObjectName("label_guid")
+        self.label_con = QtWidgets.QLabel(self.groupBox_2)
+        self.label_con.setGeometry(QtCore.QRect(14, 300, 231, 51))
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_con.setFont(font)
+        self.label_con.setText("")
+        self.label_con.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_con.setObjectName("label_con")
         self.b_7 = QtWidgets.QLabel(self.centralwidget)
         self.b_7.setGeometry(QtCore.QRect(310, 280, 61, 61))
         self.b_7.setStyleSheet("background-color: rgb(255, 0, 0);\n"
-"border-radius:30px;")
+                               "background-color: rgb(255, 102, 102);\n"
+                               "border-radius:30px;\n"
+                               "border:1px solid black;\n"
+                               "")
         self.b_7.setText("")
         self.b_7.setObjectName("b_7")
         self.yellow_Home = QtWidgets.QLabel(self.centralwidget)
         self.yellow_Home.setGeometry(QtCore.QRect(810, 370, 61, 61))
-        self.yellow_Home.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-"background-color: rgb(255, 255, 0);\n"
-"border-radius:30px;")
+        self.yellow_Home.setStyleSheet("background-color: rgb(255, 213, 0);\n"
+                                       "border-radius:30px;\n"
+                                       "border:1px solid black;")
         self.yellow_Home.setText("")
         self.yellow_Home.setObjectName("yellow_Home")
         self.b_13 = QtWidgets.QLabel(self.centralwidget)
         self.b_13.setGeometry(QtCore.QRect(700, 90, 61, 61))
-        self.b_13.setStyleSheet("background-color: rgb(0, 255, 0);\n"
-"border-radius:30px;")
+        self.b_13.setStyleSheet("background-color: rgb(0, 170, 0);\n"
+                                "border-radius:30px;\n"
+                                "border:1px solid black;")
         self.b_13.setText("")
         self.b_13.setObjectName("b_13")
         self.b_3 = QtWidgets.QLabel(self.centralwidget)
         self.b_3.setGeometry(QtCore.QRect(490, 450, 61, 61))
-        self.b_3.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_3.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                               "border:1px solid black;\n"
+                               "border-radius:30px;")
         self.b_3.setText("")
         self.b_3.setObjectName("b_3")
         self.b_4 = QtWidgets.QLabel(self.centralwidget)
         self.b_4.setGeometry(QtCore.QRect(400, 450, 61, 61))
-        self.b_4.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_4.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                               "border:1px solid black;\n"
+                               "border-radius:30px;")
         self.b_4.setText("")
         self.b_4.setObjectName("b_4")
         self.b_2 = QtWidgets.QLabel(self.centralwidget)
         self.b_2.setGeometry(QtCore.QRect(490, 540, 61, 61))
-        self.b_2.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                               "border:1px solid black;\n"
+                               "border-radius:30px;")
         self.b_2.setText("")
         self.b_2.setObjectName("b_2")
         self.b_5 = QtWidgets.QLabel(self.centralwidget)
         self.b_5.setGeometry(QtCore.QRect(310, 450, 61, 61))
-        self.b_5.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_5.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                               "border:1px solid black;\n"
+                               "border-radius:30px;")
         self.b_5.setText("")
         self.b_5.setObjectName("b_5")
         self.b_6 = QtWidgets.QLabel(self.centralwidget)
         self.b_6.setGeometry(QtCore.QRect(310, 360, 61, 61))
-        self.b_6.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_6.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                               "border:1px solid black;\n"
+                               "border-radius:30px;")
         self.b_6.setText("")
         self.b_6.setObjectName("b_6")
         self.b_8 = QtWidgets.QLabel(self.centralwidget)
         self.b_8.setGeometry(QtCore.QRect(400, 280, 61, 61))
-        self.b_8.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_8.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                               "border:1px solid black;\n"
+                               "border-radius:30px;")
         self.b_8.setText("")
         self.b_8.setObjectName("b_8")
         self.b_9 = QtWidgets.QLabel(self.centralwidget)
         self.b_9.setGeometry(QtCore.QRect(490, 280, 61, 61))
-        self.b_9.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_9.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                               "border:1px solid black;\n"
+                               "border-radius:30px;")
         self.b_9.setText("")
         self.b_9.setObjectName("b_9")
         self.b_10 = QtWidgets.QLabel(self.centralwidget)
         self.b_10.setGeometry(QtCore.QRect(490, 180, 61, 61))
-        self.b_10.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_10.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_10.setText("")
         self.b_10.setObjectName("b_10")
         self.b_11 = QtWidgets.QLabel(self.centralwidget)
         self.b_11.setGeometry(QtCore.QRect(490, 90, 61, 61))
-        self.b_11.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_11.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_11.setText("")
         self.b_11.setObjectName("b_11")
         self.b_12 = QtWidgets.QLabel(self.centralwidget)
         self.b_12.setGeometry(QtCore.QRect(590, 90, 61, 61))
-        self.b_12.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_12.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_12.setText("")
         self.b_12.setObjectName("b_12")
         self.b_14 = QtWidgets.QLabel(self.centralwidget)
         self.b_14.setGeometry(QtCore.QRect(700, 180, 61, 61))
-        self.b_14.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_14.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_14.setText("")
         self.b_14.setObjectName("b_14")
         self.b_15 = QtWidgets.QLabel(self.centralwidget)
         self.b_15.setGeometry(QtCore.QRect(700, 270, 61, 61))
-        self.b_15.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_15.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_15.setText("")
         self.b_15.setObjectName("b_15")
         self.b_16 = QtWidgets.QLabel(self.centralwidget)
         self.b_16.setGeometry(QtCore.QRect(810, 270, 61, 61))
-        self.b_16.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_16.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_16.setText("")
         self.b_16.setObjectName("b_16")
         self.b_17 = QtWidgets.QLabel(self.centralwidget)
         self.b_17.setGeometry(QtCore.QRect(900, 270, 61, 61))
-        self.b_17.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_17.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_17.setText("")
         self.b_17.setObjectName("b_17")
         self.b_18 = QtWidgets.QLabel(self.centralwidget)
         self.b_18.setGeometry(QtCore.QRect(900, 360, 61, 61))
-        self.b_18.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_18.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_18.setText("")
         self.b_18.setObjectName("b_18")
         self.b_20 = QtWidgets.QLabel(self.centralwidget)
         self.b_20.setGeometry(QtCore.QRect(810, 450, 61, 61))
-        self.b_20.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_20.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_20.setText("")
         self.b_20.setObjectName("b_20")
         self.b_21 = QtWidgets.QLabel(self.centralwidget)
         self.b_21.setGeometry(QtCore.QRect(720, 450, 61, 61))
-        self.b_21.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_21.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_21.setText("")
         self.b_21.setObjectName("b_21")
         self.b_22 = QtWidgets.QLabel(self.centralwidget)
         self.b_22.setGeometry(QtCore.QRect(720, 540, 61, 61))
-        self.b_22.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_22.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_22.setText("")
         self.b_22.setObjectName("b_22")
         self.b_23 = QtWidgets.QLabel(self.centralwidget)
         self.b_23.setGeometry(QtCore.QRect(720, 620, 61, 61))
-        self.b_23.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_23.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_23.setText("")
         self.b_23.setObjectName("b_23")
         self.b_24 = QtWidgets.QLabel(self.centralwidget)
         self.b_24.setGeometry(QtCore.QRect(610, 620, 61, 61))
-        self.b_24.setStyleSheet("background-color: rgb(254, 255, 212);\n"
-"border-radius:30px;")
+        self.b_24.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                "border:1px solid black;\n"
+                                "border-radius:30px;")
         self.b_24.setText("")
         self.b_24.setObjectName("b_24")
         self.b_1 = QtWidgets.QLabel(self.centralwidget)
         self.b_1.setGeometry(QtCore.QRect(490, 620, 61, 61))
-        self.b_1.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-"border-radius:30px;")
+        self.b_1.setStyleSheet("background-color: rgb(42, 198, 255);\n"
+                               "border-radius:30px;\n"
+                               "border:1px solid black;")
         self.b_1.setText("")
         self.b_1.setObjectName("b_1")
         self.blue_Home = QtWidgets.QLabel(self.centralwidget)
         self.blue_Home.setGeometry(QtCore.QRect(610, 530, 61, 61))
-        self.blue_Home.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-"border-radius:30px;")
+        self.blue_Home.setStyleSheet("background-color: rgb(42, 198, 255);\n"
+                                     "border-radius:30px;\n"
+                                     "border:1px solid black;")
         self.blue_Home.setText("")
         self.blue_Home.setObjectName("blue_Home")
         self.red_Home = QtWidgets.QLabel(self.centralwidget)
         self.red_Home.setGeometry(QtCore.QRect(400, 360, 61, 61))
-        self.red_Home.setStyleSheet("background-color: rgb(255, 0, 0);\n"
-"border-radius:30px;")
+        self.red_Home.setStyleSheet("background-color: rgb(255, 0, 0,150);\n"
+                                    "border-radius:30px;\n"
+                                    "border:1px solid black;\n"
+                                    "")
         self.red_Home.setText("")
         self.red_Home.setObjectName("red_Home")
         self.green_Home = QtWidgets.QLabel(self.centralwidget)
         self.green_Home.setGeometry(QtCore.QRect(600, 170, 61, 61))
-        self.green_Home.setStyleSheet("background-color: rgb(0, 255, 0);\n"
-"border-radius:30px;")
+        self.green_Home.setStyleSheet("background-color: rgb(0, 170, 0);\n"
+                                      "border-radius:30px;\n"
+                                      "border:1px solid black;")
         self.green_Home.setText("")
         self.green_Home.setObjectName("green_Home")
         self.b_19 = QtWidgets.QLabel(self.centralwidget)
         self.b_19.setGeometry(QtCore.QRect(900, 450, 61, 61))
-        self.b_19.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-"background-color: rgb(255, 255, 0);\n"
-"border-radius:30px;")
+        self.b_19.setStyleSheet("background-color: rgb(255, 213, 0);\n"
+                                "border-radius:30px;\n"
+                                "border:1px solid black;")
         self.b_19.setText("")
         self.b_19.setObjectName("b_19")
         self.blue_1 = Piece('blue',(410,620),self.centralwidget)
@@ -265,9 +333,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.blue_1.setFont(font)
-        self.blue_1.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.blue_1.setStyleSheet("background-color: rgb(85, 170, 255,0);\n"
+                                  "border-radius:30px;\n"
+                                  "color: rgb(255, 255, 255);")
+        self.blue_1.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("ludo-piece-peacock-blue.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.blue_1.setIcon(icon2)
+        self.blue_1.setIconSize(QtCore.QSize(60, 60))
         self.blue_1.setObjectName("blue_1")
         self.red_1 = Piece('red',(310,200),self.centralwidget)
         self.red_1.setGeometry(QtCore.QRect(310, 200, 61, 61))
@@ -278,9 +351,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.red_1.setFont(font)
-        self.red_1.setStyleSheet("background-color: rgb(255, 0, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.red_1.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                 "border-radius:30px;\n"
+                                 "color: rgb(255, 255, 255);")
+        self.red_1.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("ludo-piece-scarlett-red.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.red_1.setIcon(icon3)
+        self.red_1.setIconSize(QtCore.QSize(60, 60))
         self.red_1.setObjectName("red_1")
         self.yellow_1 = Piece('yellow',(900,530),self.centralwidget)
         self.yellow_1.setGeometry(QtCore.QRect(900, 530, 61, 61))
@@ -291,11 +369,16 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.yellow_1.setFont(font)
-        self.yellow_1.setStyleSheet("background-color: rgb(255, 255, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.yellow_1.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                    "border-radius:30px;\n"
+                                    "color: rgb(255, 255, 255);")
+        self.yellow_1.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("ludo-piece-mustard-yellow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.yellow_1.setIcon(icon4)
+        self.yellow_1.setIconSize(QtCore.QSize(60, 60))
         self.yellow_1.setObjectName("yellow_1")
-        self.green_1 = QtWidgets.QPushButton(self.centralwidget)
+        self.green_1 = Piece('green',(810,90),self.centralwidget)
         self.green_1.setGeometry(QtCore.QRect(810, 90, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -304,11 +387,16 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.green_1.setFont(font)
-        self.green_1.setStyleSheet("background-color: rgb(0, 255, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.green_1.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                   "border-radius:30px;\n"
+                                   "color: rgb(255, 255, 255);")
+        self.green_1.setText("")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("ludo-piece-green.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.green_1.setIcon(icon5)
+        self.green_1.setIconSize(QtCore.QSize(60, 60))
         self.green_1.setObjectName("green_1")
-        self.red_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.red_4 = Piece('red',(400,200),self.centralwidget)
         self.red_4.setGeometry(QtCore.QRect(400, 200, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -317,9 +405,12 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.red_4.setFont(font)
-        self.red_4.setStyleSheet("background-color: rgb(255, 0, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.red_4.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                 "border-radius:30px;\n"
+                                 "color: rgb(255, 255, 255);")
+        self.red_4.setText("")
+        self.red_4.setIcon(icon3)
+        self.red_4.setIconSize(QtCore.QSize(60, 60))
         self.red_4.setObjectName("red_4")
         self.red_2 = Piece('red',(310,100),self.centralwidget)
         self.red_2.setGeometry(QtCore.QRect(310, 100, 61, 61))
@@ -330,11 +421,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.red_2.setFont(font)
-        self.red_2.setStyleSheet("background-color: rgb(255, 0, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.red_2.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                 "border-radius:30px;\n"
+                                 "color: rgb(255, 255, 255);")
+        self.red_2.setText("")
+        self.red_2.setIcon(icon3)
+        self.red_2.setIconSize(QtCore.QSize(60, 60))
         self.red_2.setObjectName("red_2")
-        self.red_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.red_3 = Piece('red',(400,100),self.centralwidget)
         self.red_3.setGeometry(QtCore.QRect(400, 100, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -343,11 +437,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.red_3.setFont(font)
-        self.red_3.setStyleSheet("background-color: rgb(255, 0, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.red_3.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                 "border-radius:30px;\n"
+                                 "color: rgb(255, 255, 255);")
+        self.red_3.setText("")
+        self.red_3.setIcon(icon3)
+        self.red_3.setIconSize(QtCore.QSize(60, 60))
         self.red_3.setObjectName("red_3")
-        self.green_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.green_2 =Piece('green',(810,190),self.centralwidget)
         self.green_2.setGeometry(QtCore.QRect(900, 90, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -356,11 +453,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.green_2.setFont(font)
-        self.green_2.setStyleSheet("background-color: rgb(0, 255, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.green_2.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                   "border-radius:30px;\n"
+                                   "color: rgb(255, 255, 255);")
+        self.green_2.setText("")
+        self.green_2.setIcon(icon5)
+        self.green_2.setIconSize(QtCore.QSize(60, 60))
         self.green_2.setObjectName("green_2")
-        self.green_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.green_4 = Piece('green',(900,90),self.centralwidget)
         self.green_4.setGeometry(QtCore.QRect(810, 190, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -369,11 +469,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.green_4.setFont(font)
-        self.green_4.setStyleSheet("background-color: rgb(0, 255, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.green_4.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                   "border-radius:30px;\n"
+                                   "color: rgb(255, 255, 255);")
+        self.green_4.setText("")
+        self.green_4.setIcon(icon5)
+        self.green_4.setIconSize(QtCore.QSize(60, 60))
         self.green_4.setObjectName("green_4")
-        self.green_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.green_3 = Piece('green',(900,190),self.centralwidget)
         self.green_3.setGeometry(QtCore.QRect(900, 190, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -382,9 +485,12 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.green_3.setFont(font)
-        self.green_3.setStyleSheet("background-color: rgb(0, 255, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.green_3.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                   "border-radius:30px;\n"
+                                   "color: rgb(255, 255, 255);")
+        self.green_3.setText("")
+        self.green_3.setIcon(icon5)
+        self.green_3.setIconSize(QtCore.QSize(60, 60))
         self.green_3.setObjectName("green_3")
         self.blue_2 = Piece('blue',(320,620),self.centralwidget)
         self.blue_2.setGeometry(QtCore.QRect(320, 620, 61, 61))
@@ -395,11 +501,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.blue_2.setFont(font)
-        self.blue_2.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.blue_2.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                  "border-radius:30px;\n"
+                                  "color: rgb(255, 255, 255);")
+        self.blue_2.setText("")
+        self.blue_2.setIcon(icon2)
+        self.blue_2.setIconSize(QtCore.QSize(60, 60))
         self.blue_2.setObjectName("blue_2")
-        self.blue_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.blue_4 = Piece('blue',(410,530),self.centralwidget)
         self.blue_4.setGeometry(QtCore.QRect(410, 530, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -408,11 +517,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.blue_4.setFont(font)
-        self.blue_4.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.blue_4.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                  "border-radius:30px;\n"
+                                  "color: rgb(255, 255, 255);")
+        self.blue_4.setText("")
+        self.blue_4.setIcon(icon2)
+        self.blue_4.setIconSize(QtCore.QSize(60, 60))
         self.blue_4.setObjectName("blue_4")
-        self.blue_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.blue_3 = Piece('blue',(320,530),self.centralwidget)
         self.blue_3.setGeometry(QtCore.QRect(320, 530, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -421,9 +533,12 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.blue_3.setFont(font)
-        self.blue_3.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.blue_3.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                  "border-radius:30px;\n"
+                                  "color: rgb(255, 255, 255);")
+        self.blue_3.setText("")
+        self.blue_3.setIcon(icon2)
+        self.blue_3.setIconSize(QtCore.QSize(60, 60))
         self.blue_3.setObjectName("blue_3")
         self.yellow_2 = Piece('yellow',(810,530),self.centralwidget)
         self.yellow_2.setGeometry(QtCore.QRect(810, 530, 61, 61))
@@ -434,11 +549,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.yellow_2.setFont(font)
-        self.yellow_2.setStyleSheet("background-color: rgb(255, 255, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.yellow_2.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                    "border-radius:30px;\n"
+                                    "color: rgb(255, 255, 255);")
+        self.yellow_2.setText("")
+        self.yellow_2.setIcon(icon4)
+        self.yellow_2.setIconSize(QtCore.QSize(60, 60))
         self.yellow_2.setObjectName("yellow_2")
-        self.yellow_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.yellow_3 = Piece('yellow',(810,620),self.centralwidget)
         self.yellow_3.setGeometry(QtCore.QRect(810, 620, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -447,11 +565,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.yellow_3.setFont(font)
-        self.yellow_3.setStyleSheet("background-color: rgb(255, 255, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.yellow_3.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                    "border-radius:30px;\n"
+                                    "color: rgb(255, 255, 255);")
+        self.yellow_3.setText("")
+        self.yellow_3.setIcon(icon4)
+        self.yellow_3.setIconSize(QtCore.QSize(60, 60))
         self.yellow_3.setObjectName("yellow_3")
-        self.yellow_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.yellow_4 = Piece('yellow',(900,620),self.centralwidget)
         self.yellow_4.setGeometry(QtCore.QRect(900, 620, 61, 61))
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -460,13 +581,80 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         font.setItalic(True)
         font.setWeight(75)
         self.yellow_4.setFont(font)
-        self.yellow_4.setStyleSheet("background-color: rgb(255, 255, 0);\n"
-"border-radius:30px;\n"
-"color: rgb(255, 255, 255);")
+        self.yellow_4.setStyleSheet("background-color: rgb(255, 255, 0,0);\n"
+                                    "border-radius:30px;\n"
+                                    "color: rgb(255, 255, 255);")
+        self.yellow_4.setText("")
+        self.yellow_4.setIcon(icon4)
+        self.yellow_4.setIconSize(QtCore.QSize(60, 60))
         self.yellow_4.setObjectName("yellow_4")
+        self.lbl_blue_home = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_blue_home.setGeometry(QtCore.QRect(580, 530, 121, 61))
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(17)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.lbl_blue_home.setFont(font)
+        self.lbl_blue_home.setStyleSheet("background-color: rgb(255, 255, 255,0);\n"
+                                         "color: rgb(255, 255, 255);\n"
+                                         "\n"
+                                         "")
+        self.lbl_blue_home.setText("")
+        self.lbl_blue_home.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_blue_home.setObjectName("lbl_blue_home")
+        self.lbl_yellow_home = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_yellow_home.setGeometry(QtCore.QRect(800, 370, 81, 61))
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(17)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.lbl_yellow_home.setFont(font)
+        self.lbl_yellow_home.setStyleSheet("background-color: rgb(255, 255, 255,0);\n"
+                                           "color: rgb(255, 255, 255);\n"
+                                           "\n"
+                                           "")
+        self.lbl_yellow_home.setText("")
+        self.lbl_yellow_home.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_yellow_home.setObjectName("lbl_yellow_home")
+        self.lbl_green_home = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_green_home.setGeometry(QtCore.QRect(590, 160, 81, 81))
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(17)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.lbl_green_home.setFont(font)
+        self.lbl_green_home.setStyleSheet("background-color: rgb(255, 255, 255,0);\n"
+                                          "color: rgb(255, 255, 255);\n"
+                                          "\n"
+                                          "")
+        self.lbl_green_home.setText("")
+        self.lbl_green_home.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_green_home.setObjectName("lbl_green_home")
+        self.lbl_red_home = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_red_home.setGeometry(QtCore.QRect(390, 360, 81, 61))
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(17)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.lbl_red_home.setFont(font)
+        self.lbl_red_home.setStyleSheet("background-color: rgb(255, 255, 255,0);\n"
+                                        "color: rgb(255, 255, 255);\n"
+                                        "\n"
+                                        "")
+        self.lbl_red_home.setText("")
+        self.lbl_red_home.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_red_home.setObjectName("lbl_red_home")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1030, 25))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1047, 25))
         self.menubar.setObjectName("menubar")
         self.menuAdd_Player = QtWidgets.QMenu(self.menubar)
         self.menuAdd_Player.setObjectName("menuAdd_Player")
@@ -475,12 +663,26 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.s = QtWidgets.QAction(MainWindow)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("icons8-start-64.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.s.setIcon(icon6)
+        self.s.setShortcutVisibleInContextMenu(True)
         self.s.setObjectName("s")
         self.newgame = QtWidgets.QAction(MainWindow)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("icons8-game-controller-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.newgame.setIcon(icon7)
         self.newgame.setObjectName("newgame")
         self.add = QtWidgets.QAction(MainWindow)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("icons8-add-column-64.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.add.setIcon(icon8)
+        self.add.setShortcutVisibleInContextMenu(False)
         self.add.setObjectName("add")
         self.exit = QtWidgets.QAction(MainWindow)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("icons8-close-window-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.exit.setIcon(icon9)
         self.exit.setObjectName("exit")
         self.menuAdd_Player.addAction(self.s)
         self.menuAdd_Player.addSeparator()
@@ -496,42 +698,46 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.newgame.triggered.connect(MainWindow.update)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Ludo-Game"))
+        self.groupBox.setToolTip(_translate("MainWindow", "Players_Box"))
         self.groupBox.setTitle(_translate("MainWindow", "Players"))
-        self.lbl_player_1.setText(_translate("MainWindow", "1.player"))
-        self.lbl_player_2.setText(_translate("MainWindow", "2.player"))
-        self.lbl_player_3.setText(_translate("MainWindow", "3.player"))
-        self.lbl_player_4.setText(_translate("MainWindow", "4.player"))
-        self.lbl_turns.setText(_translate("MainWindow", "TextLabel"))
+        self.pushButton_tas.setToolTip(_translate("MainWindow", "Roll_Dice"))
         self.pushButton_tas.setText(_translate("MainWindow", "Roll Dice"))
-        self.blue_1.setText(_translate("MainWindow", "1"))
-        self.red_1.setText(_translate("MainWindow", "1"))
-        self.yellow_1.setText(_translate("MainWindow", "1"))
-        self.green_1.setText(_translate("MainWindow", "1"))
-        self.red_4.setText(_translate("MainWindow", "4"))
-        self.red_2.setText(_translate("MainWindow", "2"))
-        self.red_3.setText(_translate("MainWindow", "3"))
-        self.green_2.setText(_translate("MainWindow", "2"))
-        self.green_4.setText(_translate("MainWindow", "4"))
-        self.green_3.setText(_translate("MainWindow", "3"))
-        self.blue_2.setText(_translate("MainWindow", "2"))
-        self.blue_4.setText(_translate("MainWindow", "4"))
-        self.blue_3.setText(_translate("MainWindow", "3"))
-        self.yellow_2.setText(_translate("MainWindow", "2"))
-        self.yellow_3.setText(_translate("MainWindow", "3"))
-        self.yellow_4.setText(_translate("MainWindow", "4"))
+        self.lbl_tas.setToolTip(_translate("MainWindow", "Number_Dice"))
+        self.lbl_tas.setText(_translate("MainWindow", ""))
+        self.label_guid.setToolTip(_translate("MainWindow", "Guid_Box"))
+        self.blue_1.setToolTip(_translate("MainWindow", "Blue_piece"))
+        self.red_1.setToolTip(_translate("MainWindow", "RED-piece"))
+        self.yellow_1.setToolTip(_translate("MainWindow", "Yellow_piece"))
+        self.green_1.setToolTip(_translate("MainWindow", "GREEN-piece"))
+        self.red_4.setToolTip(_translate("MainWindow", "RED-piece"))
+        self.red_2.setToolTip(_translate("MainWindow", "RED-piece"))
+        self.red_3.setToolTip(_translate("MainWindow", "RED-piece"))
+        self.green_2.setToolTip(_translate("MainWindow", "GREEN-piece"))
+        self.green_4.setToolTip(_translate("MainWindow", "GREEN-piece"))
+        self.green_3.setToolTip(_translate("MainWindow", "GREEN-piece"))
+        self.blue_2.setToolTip(_translate("MainWindow", "Blue_piece"))
+        self.blue_4.setToolTip(_translate("MainWindow", "Blue_piece"))
+        self.blue_3.setToolTip(_translate("MainWindow", "Blue_piece"))
+        self.yellow_2.setToolTip(_translate("MainWindow", "Yellow_piece"))
+        self.yellow_3.setToolTip(_translate("MainWindow", "Yellow_piece"))
+        self.yellow_4.setToolTip(_translate("MainWindow", "Yellow_piece"))
         self.menuAdd_Player.setTitle(_translate("MainWindow", "Game"))
-        self.s.setText(_translate("MainWindow", "Start Gmae"))
+        self.s.setText(_translate("MainWindow", "Start Game"))
+        self.s.setShortcut(_translate("MainWindow", "Ctrl+G"))
         self.newgame.setText(_translate("MainWindow", "New Game"))
+        self.newgame.setShortcut(_translate("MainWindow", "Ctrl+N"))
         self.add.setText(_translate("MainWindow", "Add Platyer"))
+        self.add.setShortcut(_translate("MainWindow", "Ctrl+A"))
         self.exit.setText(_translate("MainWindow", "Exit"))
+        self.exit.setShortcut(_translate("MainWindow", "Ctrl+Q"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

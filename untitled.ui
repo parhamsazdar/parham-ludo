@@ -6,15 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1030</width>
-    <height>811</height>
+    <width>1047</width>
+    <height>844</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Ludo-Game</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Capture.PNG</normaloff>Capture.PNG</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>100</width>
+    <height>80</height>
+   </size>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox">
@@ -32,6 +42,9 @@
       <pointsize>14</pointsize>
       <italic>true</italic>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Players_Box</string>
     </property>
     <property name="title">
      <string>Players</string>
@@ -52,11 +65,10 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">
-color: rgb(85, 170, 255);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>1.player</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="lbl_player_2">
@@ -75,10 +87,10 @@ color: rgb(85, 170, 255);</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 0, 0);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>2.player</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="lbl_player_3">
@@ -97,10 +109,10 @@ color: rgb(85, 170, 255);</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(0, 255, 0);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>3.player</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="lbl_player_4">
@@ -119,10 +131,10 @@ color: rgb(85, 170, 255);</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 227, 19);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>4.player</string>
+      <string/>
      </property>
     </widget>
    </widget>
@@ -132,33 +144,17 @@ color: rgb(85, 170, 255);</string>
       <x>10</x>
       <y>410</y>
       <width>261</width>
-      <height>331</height>
+      <height>361</height>
      </rect>
     </property>
     <property name="title">
      <string/>
     </property>
-    <widget class="QLabel" name="lbl_turns">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>40</y>
-       <width>151</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_tas">
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>110</y>
+       <y>80</y>
        <width>131</width>
        <height>61</height>
       </rect>
@@ -169,17 +165,33 @@ color: rgb(85, 170, 255);</string>
        <pointsize>12</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string>Roll_Dice</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
      <property name="text">
       <string>Roll Dice</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons8-dice-24.png</normaloff>icons8-dice-24.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>90</width>
+       <height>90</height>
+      </size>
      </property>
     </widget>
     <widget class="QLabel" name="lbl_tas">
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>200</y>
-       <width>141</width>
-       <height>61</height>
+       <y>140</y>
+       <width>131</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -190,8 +202,87 @@ color: rgb(85, 170, 255);</string>
        <bold>true</bold>
       </font>
      </property>
+     <property name="toolTip">
+      <string>Number_Dice</string>
+     </property>
+     <property name="text">
+      <string>6</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_turns">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>10</y>
+       <width>151</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Sans Serif</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_guid">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>210</y>
+       <width>231</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Sans Serif</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>Guid_Box</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_con">
+     <property name="geometry">
+      <rect>
+       <x>14</x>
+       <y>300</y>
+       <width>231</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Sans Serif</family>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
@@ -206,7 +297,10 @@ color: rgb(85, 170, 255);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 0, 0);
-border-radius:30px;</string>
+background-color: rgb(255, 102, 102);
+border-radius:30px;
+border:1px solid black;
+</string>
     </property>
     <property name="text">
      <string/>
@@ -222,9 +316,9 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);
-background-color: rgb(255, 255, 0);
-border-radius:30px;</string>
+     <string notr="true">background-color: rgb(255, 213, 0);
+border-radius:30px;
+border:1px solid black;</string>
     </property>
     <property name="text">
      <string/>
@@ -240,8 +334,9 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);
-border-radius:30px;</string>
+     <string notr="true">background-color: rgb(0, 170, 0);
+border-radius:30px;
+border:1px solid black;</string>
     </property>
     <property name="text">
      <string/>
@@ -257,7 +352,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -274,7 +370,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -291,7 +388,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -308,7 +406,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -325,7 +424,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -342,7 +442,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -359,7 +460,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -376,7 +478,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -393,7 +496,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -410,7 +514,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -427,7 +532,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -444,7 +550,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -461,7 +568,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -478,7 +586,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -495,7 +604,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -512,7 +622,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -529,7 +640,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -546,7 +658,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -563,7 +676,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -580,7 +694,8 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(254, 255, 212);
+     <string notr="true">background-color: rgb(255, 255, 255);
+border:1px solid black;
 border-radius:30px;</string>
     </property>
     <property name="text">
@@ -597,8 +712,9 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);
-border-radius:30px;</string>
+     <string notr="true">background-color: rgb(42, 198, 255);
+border-radius:30px;
+border:1px solid black;</string>
     </property>
     <property name="text">
      <string/>
@@ -614,8 +730,9 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);
-border-radius:30px;</string>
+     <string notr="true">background-color: rgb(42, 198, 255);
+border-radius:30px;
+border:1px solid black;</string>
     </property>
     <property name="text">
      <string/>
@@ -631,8 +748,10 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);
-border-radius:30px;</string>
+     <string notr="true">background-color: rgb(255, 0, 0,150);
+border-radius:30px;
+border:1px solid black;
+</string>
     </property>
     <property name="text">
      <string/>
@@ -648,8 +767,9 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);
-border-radius:30px;</string>
+     <string notr="true">background-color: rgb(0, 170, 0);
+border-radius:30px;
+border:1px solid black;</string>
     </property>
     <property name="text">
      <string/>
@@ -665,9 +785,9 @@ border-radius:30px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);
-background-color: rgb(255, 255, 0);
-border-radius:30px;</string>
+     <string notr="true">background-color: rgb(255, 213, 0);
+border-radius:30px;
+border:1px solid black;</string>
     </property>
     <property name="text">
      <string/>
@@ -691,13 +811,26 @@ border-radius:30px;</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Blue_piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);
+     <string notr="true">background-color: rgb(85, 170, 255,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>1</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-peacock-blue.png</normaloff>ludo-piece-peacock-blue.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="red_1">
@@ -718,13 +851,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>RED-piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>1</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-scarlett-red.png</normaloff>ludo-piece-scarlett-red.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="yellow_1">
@@ -745,13 +891,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Yellow_piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>1</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-mustard-yellow.png</normaloff>ludo-piece-mustard-yellow.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="green_1">
@@ -772,13 +931,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>GREEN-piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>1</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-green.png</normaloff>ludo-piece-green.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="red_4">
@@ -799,13 +971,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>RED-piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>4</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-scarlett-red.png</normaloff>ludo-piece-scarlett-red.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="red_2">
@@ -826,13 +1011,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>RED-piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>2</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-scarlett-red.png</normaloff>ludo-piece-scarlett-red.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="red_3">
@@ -853,13 +1051,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>RED-piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>3</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-scarlett-red.png</normaloff>ludo-piece-scarlett-red.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="green_2">
@@ -880,13 +1091,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>GREEN-piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>2</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-green.png</normaloff>ludo-piece-green.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="green_4">
@@ -907,13 +1131,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>GREEN-piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>4</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-green.png</normaloff>ludo-piece-green.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="green_3">
@@ -934,13 +1171,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>GREEN-piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 255, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>3</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-green.png</normaloff>ludo-piece-green.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="blue_2">
@@ -961,13 +1211,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Blue_piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>2</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-peacock-blue.png</normaloff>ludo-piece-peacock-blue.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="blue_4">
@@ -988,13 +1251,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Blue_piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>4</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-peacock-blue.png</normaloff>ludo-piece-peacock-blue.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="blue_3">
@@ -1015,13 +1291,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Blue_piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>3</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-peacock-blue.png</normaloff>ludo-piece-peacock-blue.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="yellow_2">
@@ -1042,13 +1331,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Yellow_piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>2</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-mustard-yellow.png</normaloff>ludo-piece-mustard-yellow.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="yellow_3">
@@ -1069,13 +1371,26 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Yellow_piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>3</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-mustard-yellow.png</normaloff>ludo-piece-mustard-yellow.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="yellow_4">
@@ -1096,13 +1411,150 @@ color: rgb(255, 255, 255);</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Yellow_piece</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 0);
+     <string notr="true">background-color: rgb(255, 255, 0,0);
 border-radius:30px;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>4</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>ludo-piece-mustard-yellow.png</normaloff>ludo-piece-mustard-yellow.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_blue_home">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>530</y>
+      <width>121</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Sans Serif</family>
+      <pointsize>17</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255,0);
+color: rgb(255, 255, 255);
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_yellow_home">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>370</y>
+      <width>81</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Sans Serif</family>
+      <pointsize>17</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255,0);
+color: rgb(255, 255, 255);
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_green_home">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>160</y>
+      <width>81</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Sans Serif</family>
+      <pointsize>17</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255,0);
+color: rgb(255, 255, 255);
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_red_home">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>360</y>
+      <width>81</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Sans Serif</family>
+      <pointsize>17</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255,0);
+color: rgb(255, 255, 255);
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -1111,7 +1563,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1030</width>
+     <width>1047</width>
      <height>25</height>
     </rect>
    </property>
@@ -1131,27 +1583,63 @@ color: rgb(255, 255, 255);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="s">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons8-start-64.png</normaloff>icons8-start-64.png</iconset>
+   </property>
    <property name="text">
-    <string>Start Gmae</string>
+    <string>Start Game</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+   <property name="shortcutVisibleInContextMenu">
+    <bool>true</bool>
    </property>
   </action>
   <action name="newgame">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons8-game-controller-48.png</normaloff>icons8-game-controller-48.png</iconset>
+   </property>
    <property name="text">
     <string>New Game</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="add">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons8-add-column-64.png</normaloff>icons8-add-column-64.png</iconset>
+   </property>
    <property name="text">
     <string>Add Platyer</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+   <property name="shortcutVisibleInContextMenu">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="exit">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons8-close-window-48.png</normaloff>icons8-close-window-48.png</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="New Text Document.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>exit</sender>

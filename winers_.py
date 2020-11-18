@@ -113,11 +113,11 @@ class Winers(QtWidgets.QMainWindow, QtWidgets.QDialog):
     def retranslateUi(self, mainWindow):
         _translate = QtCore.QCoreApplication.translate
         mainWindow.setWindowTitle(_translate("mainWindow", "Winers"))
-        self.label_5.setText(_translate("mainWindow", "3.player"))
-        self.label_3.setText(_translate("mainWindow", "2.player"))
-        self.label_4.setText(_translate("mainWindow", "4.player"))
+        self.label_5.setText(_translate("mainWindow", ""))
+        self.label_3.setText(_translate("mainWindow", ""))
+        self.label_4.setText(_translate("mainWindow", ""))
         self.label.setText(_translate("mainWindow", "Game Finished!"))
         self.label_2.setText(_translate("mainWindow", "ranking:"))
-        self.label_1.setText(_translate("mainWindow", "1.player"))
+        self.label_1.setText(_translate("mainWindow", ""))
         self.pushButton.setText(_translate("mainWindow", "New Game"))
         self.pushButton_2.setText(_translate("mainWindow", "Finish"))

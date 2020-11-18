@@ -45,7 +45,7 @@ class Players:
             self.home = (610, 530,25)
         elif self.color == 'red':
             self.home = (400, 360,7)
-        elif self.color == 'green ':
+        elif self.color == 'green':
             self.home = (600, 170,13)
         elif self.color == 'yellow':
             self.home = (810, 370,19)

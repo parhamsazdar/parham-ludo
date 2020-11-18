@@ -16,7 +16,9 @@ from PyQt5.QtWidgets import QMessageBox
 class Login(QtWidgets.QMainWindow, QtWidgets.QDialog):
     players = []
     selected_color = []
-
+    def __init__(self,par):
+        super().__init__()
+        self.par=par
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(561, 310)

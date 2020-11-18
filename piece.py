@@ -7,7 +7,8 @@ class Piece(QPushButton):
     Green = []
     Blue = []
     Yellow = []
-    total_piece=[]
+    total_piece = []
+
     def __init__(self, color, piece_store, *__args):
         super().__init__(*__args)
         self.color = color
@@ -17,6 +18,7 @@ class Piece(QPushButton):
         self.add_color_list()
         self.setHidden(True)
         Piece.total_piece.append(self)
+
     def add_color_list(self):
         if self.color == 'blue':
             Piece.Blue.append(self)
@@ -120,6 +122,7 @@ class Piece(QPushButton):
         player.home_number += 1
         player.number_on_board -= 1
         piece.setEnabled(False)
+        Game.set_home_number()
 
     def check_award(self):
         if Game.tas != 6:

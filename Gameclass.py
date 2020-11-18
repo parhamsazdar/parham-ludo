@@ -35,6 +35,7 @@ class Game:
             Game.players_color.append(i.color)
         Game.setHidden()
         Game.Ludo.ui.pushButton_tas.setEnabled(True)
+        print(Game.players_color)
 
     @staticmethod
     def setHidden():
@@ -70,31 +71,55 @@ class Game:
             Game.Ludo.winers()
 
     @staticmethod
-    def set_winers_ranks():
-        pass
-
-    @staticmethod
     def roll():
         if Game.turn is None:
             Game.next_turn()
-        Game.Ludo.ui.lbl_turns.setText(
-            Game.players[Game.choose_player()].name + ' ' + Game.players[Game.choose_player()].color)
-        Game.Ludo.ui.lbl_turns.setStyleSheet(f'color:{Game.turn}')
+        Game.Ludo.ui.lbl_turns.setText('Turn:' + f'{Game.players[Game.choose_player()].name}')
+        Game.Ludo.ui.lbl_turns.setStyleSheet(f'color:white;background-color:{Game.turn}')
+        Game.Ludo.ui.label_guid.setText(f'{Game.players[Game.choose_player()].name}' + ' roll a dice')
+        Game.Ludo.ui.label_guid.setStyleSheet(f'color:{Game.turn}')
         if Game.check_number_onboard() is False and Game.tas_count <= 3:
             Game.tas_count += 1
             Game.tas = randint(1, 6)
             Game.Ludo.ui.lbl_tas.setText(str(Game.tas))
+            Game.Ludo.ui.lbl_tas.setStyleSheet(f'color:{Game.turn}')
             if Game.tas == 6:
                 Game.tas_count = 0
                 Game.Ludo.ui.pushButton_tas.setEnabled(False)
+                Game.Ludo.ui.label_guid.setText(f'{Game.players[Game.choose_player()].name}' + ' bring piece')
+                Game.Ludo.ui.label_guid.setStyleSheet(f'color:{Game.turn}')
             elif Game.tas_count == 3:
                 Game.next_turn()
                 Game.tas_count = 0
         else:
+
             Game.tas = randint(1, 6)
             Game.tas_count = 0
             Game.Ludo.ui.pushButton_tas.setEnabled(False)
-            Game.Ludo.ui.lbl_tas.setText(str(Game.tas))
+            Game.set_color()
+
+    @staticmethod
+    def set_home_number():
+        if Game.players[Game.choose_player()].home_number > 0:
+            if Game.players[Game.choose_player()].color == 'red':
+                Game.Ludo.ui.lbl_red_home.setText(str(Game.players[Game.choose_player()].home_number))
+            if Game.players[Game.choose_player()].color == 'blue':
+                Game.Ludo.ui.lbl_blue_home.setText(str(Game.players[Game.choose_player()].home_number))
+            if Game.players[Game.choose_player()].color == 'green':
+                Game.Ludo.ui.lbl_green_home.setText(str(Game.players[Game.choose_player()].home_number))
+            if Game.players[Game.choose_player()].color == 'yellow':
+                Game.Ludo.ui.lbl_yellow_home.setText(str(Game.players[Game.choose_player()].home_number))
+
+    @staticmethod
+    def set_color():
+        if Game.tas != 6:
+            Game.Ludo.ui.label_guid.setText(f'{Game.players[Game.choose_player()].name}' + ' select your piece')
+            Game.Ludo.ui.label_guid.setStyleSheet(f'color:{Game.turn}')
+        else:
+            Game.Ludo.ui.label_guid.setText(f'{Game.players[Game.choose_player()].name}' + ' you gotta price')
+            Game.Ludo.ui.label_guid.setStyleSheet(f'color:{Game.turn}')
+        Game.Ludo.ui.lbl_tas.setText(str(Game.tas))
+        Game.Ludo.ui.lbl_tas.setStyleSheet(f'color:{Game.turn}')
 
     @staticmethod
     def check_number_onboard():
