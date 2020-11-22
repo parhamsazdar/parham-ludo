@@ -10,6 +10,11 @@ class Login(QtWidgets.QMainWindow, QtWidgets.QDialog):
     players = []
     selected_color = []
 
+    def __init__(self, par, par_1):
+        super(Login, self).__init__()
+        self.par = par
+        self.par_1 = par_1
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(561, 310)
@@ -86,10 +91,15 @@ class Login(QtWidgets.QMainWindow, QtWidgets.QDialog):
                     self.comboBox.removeItem(x)
                     Login.selected_color.append(color_)
                     self.add()
+                    self.par.close()
                 else:
                     self.error_notexist()
+            if len(Login.players) == 4:
+                self.par_1.ui.add.setEnabled(False)
+
         else:
-            self.max_error()
+            pass
+
         self.lineEdit.setText('')
         self.lineEdit_2.setText('')
 
@@ -132,14 +142,3 @@ class Login(QtWidgets.QMainWindow, QtWidgets.QDialog):
         self.comboBox.setItemText(2, _translate("MainWindow", "blue"))
         self.comboBox.setItemText(3, _translate("MainWindow", "yellow"))
         self.pushButton.setText(_translate("MainWindow", "login"))
-
-
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Login()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

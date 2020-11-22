@@ -24,6 +24,7 @@ class Ludo:
         self.lbl_home_number = [self.ui.lbl_blue_home, self.ui.lbl_red_home, self.ui.lbl_green_home,
                                 self.ui.lbl_blue_home, self.ui.lbl_yellow_home]
         self.ui.pushButton_tas.setEnabled(False)
+
         self.click_func()
         MainWindow.show()
         self.add_player()
@@ -70,9 +71,8 @@ class Ludo:
     # connect to login dialog for adding player
     def add_player(self):
         dialog = QtWidgets.QDialog()
-        dialog.ui = Login()
+        dialog.ui = Login(dialog,self)
         dialog.ui.setupUi(dialog)
-        dialog.exec_()
         dialog.show()
 
     # connect to the winers dialog for showing winers ranks
@@ -84,7 +84,6 @@ class Ludo:
         for i in range(len(dialog.ui.lbl)):
             dialog.ui.lbl[i].setText(f'{i + 1}.{Game.winers[i].name}')
             dialog.ui.lbl[i].setStyleSheet(f'color : {Game.winers[i].color}')
-        dialog.exec_()
         dialog.show()
 
     # connect the buttoms to related func

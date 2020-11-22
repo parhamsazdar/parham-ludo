@@ -91,7 +91,7 @@ class Winers(QtWidgets.QMainWindow, QtWidgets.QDialog):
     def reset(self):
         self.par.reset()
         self.new_game_add()
-        self.pushButton_2.setEnabled(False)
+        self.par.close()
 
     def new_game_add(self):
         msg = QtWidgets.QMessageBox()

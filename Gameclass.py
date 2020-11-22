@@ -4,24 +4,18 @@ from datetime import datetime
 """This module contains the most import class which name is Game class"""
 """Game class contains all the rules that related to the ludo game"""
 
+li = [[490, 620], [490, 540], [490, 450], [400, 450],
+      [310, 450], [310, 360], [310, 280],
+      [400, 280], [490, 280],
+      [490, 180],
+      [490, 90], [590, 90], [700, 90], [700, 180], [700, 270],
+      [810, 270], [900, 270],
+      [900, 360], [900, 450], [810, 450],
+      [720, 450], [720, 540], [720, 620], [610, 620]]
+
 
 class Game:
-    board = [0, {'coord': (490, 620), 'piece': None}, {'coord': (490, 540), 'piece': None},
-             {'coord': (490, 450), 'piece': None},
-             {'coord': (400, 450), 'piece': None}, {'coord': (310, 450), 'piece': None},
-             {'coord': (310, 360), 'piece': None},
-             {'coord': (310, 280), 'piece': None}, {'coord': (400, 280), 'piece': None},
-             {'coord': (490, 280), 'piece': None},
-             {'coord': (490, 180), 'piece': None}, {'coord': (490, 90), 'piece': None},
-             {'coord': (590, 90), 'piece': None},
-             {'coord': (700, 90), 'piece': None}, {'coord': (700, 180), 'piece': None},
-             {'coord': (700, 270), 'piece': None},
-             {'coord': (810, 270), 'piece': None}, {'coord': (900, 270), 'piece': None},
-             {'coord': (900, 360), 'piece': None},
-             {'coord': (900, 450), 'piece': None}, {'coord': (810, 450), 'piece': None},
-             {'coord': (720, 450), 'piece': None},
-             {'coord': (720, 540), 'piece': None}, {'coord': (720, 620), 'piece': None},
-             {'coord': (610, 620), 'piece': None}]
+    board =[0]+[{'coord':i ,'piece':None} for i in li]
     tas = None
     tas_count = 0
     turn = None
@@ -194,3 +188,4 @@ class Game:
         if Game.players[Game.choose_player()].pos[piece] + Game.tas >= z and \
                 piece and Game.players[Game.choose_player()].number_on_board == 1:
             return True
+
