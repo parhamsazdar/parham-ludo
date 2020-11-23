@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import QMessageBox
 class Login(QtWidgets.QMainWindow, QtWidgets.QDialog):
     players = []
     selected_color = []
-
+    #par_1=ludo-game #par=dialog for closing the window
     def __init__(self, par, par_1):
         super(Login, self).__init__()
         self.par = par

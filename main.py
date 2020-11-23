@@ -78,7 +78,7 @@ class Ludo:
     # connect to the winers dialog for showing winers ranks
     def winers(self):
         dialog = QtWidgets.QDialog()
-        dialog.ui = Winers(self)
+        dialog.ui = Winers(self,dialog)
         dialog.ui.setupUi(dialog)
         dialog.ui.lbl = dialog.ui.lbl[:len(Game.players)]
         for i in range(len(dialog.ui.lbl)):
@@ -115,6 +115,8 @@ class Ludo:
         for i in range(len(self.lbl)):
             self.lbl[i].setText(f'{i + 1}.{Game.players[i].name}')
             self.lbl[i].setStyleSheet(f'color : {Game.players[i].color}')
+
+
 
 
 if __name__ == '__main__':

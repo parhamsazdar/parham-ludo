@@ -1,13 +1,16 @@
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
 """This module is contain winners Gui and all related func"""
 
+
 class Winers(QtWidgets.QMainWindow, QtWidgets.QDialog):
-    def __init__(self, par):
+
+    # par=ludo-game #par_1=dialog for closing the window
+    def __init__(self, par, par_1):
         super().__init__()
         self.par = par
+        self.par_1 = par_1
 
     def setupUi(self, mainWindow):
         mainWindow.setObjectName("mainWindow")
@@ -91,7 +94,7 @@ class Winers(QtWidgets.QMainWindow, QtWidgets.QDialog):
     def reset(self):
         self.par.reset()
         self.new_game_add()
-        self.par.close()
+        self.par_1.close()
 
     def new_game_add(self):
         msg = QtWidgets.QMessageBox()
