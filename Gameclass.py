@@ -15,7 +15,7 @@ li = [[490, 620], [490, 540], [490, 450], [400, 450],
 
 
 class Game:
-    board =[0]+[{'coord':i ,'piece':None} for i in li]
+    board = [0] + [{'coord': i, 'piece': None} for i in li]
     tas = None
     tas_count = 0
     turn = None
@@ -132,6 +132,8 @@ class Game:
 
     """The funcs below are about the condition that players experiece"""
 
+    # موقعیتی که نوبت بازیکن هست و تاس ۶ میاد یا بازیکن مهره نداره یا اینکه بازیکن مهره داره و
+    # به عنوان جایزه می تونه مهره بیاره تو زمین و توی نقطه شروع هیچ مهره ای وجود نداره از جنس خودش
     @staticmethod
     def condination_1(piece):
         if Game.turn == piece.color:
@@ -142,12 +144,16 @@ class Game:
                         Game.choose_player()].pos):
                 return True
 
+    # موقعیتی که بازیکن نوبتشه و حداقل یه مهره رو تو زمین داره
     @staticmethod
     def condition_2(piece):
         if Game.turn == piece.color:
             if piece.on_board and Game.check_number_onboard():
                 return True
 
+    # موقعیتی که بازیکن قبل خانه فاینال یا همان home  خود قرار دارد و
+    # موقعیت الان جمعش با عدد تاس کمتر از خونه فاینال خودش میشه و خونه جلوییش که می خواد بره
+    # مهره ای از جنس خودش نباشه
     @staticmethod
     def condition_2_1(piece):
         if Game.players[Game.choose_player()].pos[piece] + Game.tas >= Game.players[
@@ -157,6 +163,10 @@ class Game:
                 Game.players[Game.choose_player()].pos:
             return True
 
+    # زمانی که مهره خونه ۲۴ رو رد می کنه و جمع عدد تاسش با پوزیشن مهره از ۲۴ بیشتر میشه
+    # که از پوزیشن حال حاضر مهره ۲۴ تا کم میشه
+    # چون تعداد مهره های زمین ۲۴ تاست این مرحله
+    # برای مهره قرمز و زرد و سبز می افته چون ابی که نباید ۲۴ رو رد کنه
     @staticmethod
     def condition_2_2(piece):
         if Game.players[Game.choose_player()].pos[piece] + Game.tas > 24 and Game.players[Game.choose_player()].pos[
@@ -165,6 +175,9 @@ class Game:
             Game.choose_player()].pos:
             return True
 
+    # این مرحله مهره خانه ۲۴ رو رد کرده اما هنوز به خونه فاینال نرسیده پس باید پوزیشن
+    # و تاس جمعشون کمتر از فاینال مهره بشه که اگر بیشتر بشه مهره نباید
+    # حرکتی داشته باشه بازم این حالت برای مهره های ابی اتفاق نمی افتد چون قرار نیست خانه ۲۴ رد بشه
     @staticmethod
     def condition_2_3(piece):
 
@@ -173,12 +186,17 @@ class Game:
                     'piece'] not in Game.players[Game.choose_player()].pos and piece.on_board:
             return True
 
+    # این مرحله برای اینه که اگر مهره جمع پوزیشن و تاس بیشتر از ۲۴ شد اما یا بیشتر از خونه فاینال خودش شد
+    # اما این حرکت باعث رفتن مهره به خونه میشه مهره رو به سمت خونه اش هدایت کنه
     @staticmethod
     def condition_2_home(piece):
 
         if Game.players[Game.choose_player()].pos[piece] + Game.tas == Game.players[Game.choose_player()].home[2]:
             return True
 
+    # این مرحله برای اینه هست که اگر مهره چاره ای نداشته باشه
+    # برای حرکت با کلیک بر روی مهره حداقل نوبت بر
+    # ه رو نفره بعدی در صورتی که فقط یه مهره تو زمین داشته باشه
     @staticmethod
     def condition_last(piece):
         if Game.players[Game.choose_player()].color == 'blue':
@@ -188,4 +206,3 @@ class Game:
         if Game.players[Game.choose_player()].pos[piece] + Game.tas >= z and \
                 piece and Game.players[Game.choose_player()].number_on_board == 1:
             return True
-

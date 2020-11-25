@@ -12,6 +12,12 @@ from winers_ import Winers
 Visual effects"""
 
 
+# این بازی به این صورت طراحی شده مه تمام مهره ها هم دکمه اند هم از کلاس piece  هستند
+# و بعد از بالا اومدن ui مهره ها ساخته میشن
+# بازیکن ها توی  ماژول login تشکیل میشن و با توجه به رنگ انتخابی بازیکن ها مهره
+# ها به بازیکن ها با توابع setup. توی کلاس player  اختصاص داده می شوند
+
+
 class Ludo:
 
     def __init__(self):
@@ -71,14 +77,14 @@ class Ludo:
     # connect to login dialog for adding player
     def add_player(self):
         dialog = QtWidgets.QDialog()
-        dialog.ui = Login(dialog,self)
+        dialog.ui = Login(dialog, self)
         dialog.ui.setupUi(dialog)
         dialog.show()
 
     # connect to the winers dialog for showing winers ranks
     def winers(self):
         dialog = QtWidgets.QDialog()
-        dialog.ui = Winers(self,dialog)
+        dialog.ui = Winers(self, dialog)
         dialog.ui.setupUi(dialog)
         dialog.ui.lbl = dialog.ui.lbl[:len(Game.players)]
         for i in range(len(dialog.ui.lbl)):
@@ -115,8 +121,6 @@ class Ludo:
         for i in range(len(self.lbl)):
             self.lbl[i].setText(f'{i + 1}.{Game.players[i].name}')
             self.lbl[i].setStyleSheet(f'color : {Game.players[i].color}')
-
-
 
 
 if __name__ == '__main__':
