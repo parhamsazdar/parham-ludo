@@ -69,8 +69,10 @@ class Login(QtWidgets.QMainWindow, QtWidgets.QDialog):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.pushButton.clicked.connect(self.isvalid_player)
 
-    # for checking if the user is valid or not by read info from file of user
     def isvalid_player(self):
+        """
+        for checking if the user is valid or not by read info from file of user
+        """
         if self.comboBox.currentText() in Login.selected_color:
             self.comboBox.removeItem(self.comboBox.currentIndex())
             self.has_taken()

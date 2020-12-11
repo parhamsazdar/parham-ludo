@@ -4,6 +4,7 @@ from piece import Piece
 """ This module setups players piece and all the related things"""
 
 
+# Change the name to Player
 class Players:
     def __init__(self, name, color):
         self.name = name

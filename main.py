@@ -48,9 +48,34 @@ class Ludo:
         else:
             msg.close()
 
-    # Reset_Game_func
     def reset(self):
-        reset(Game, Piece, Login, self)
+        """
+        Reset game
+        """
+        # part_game
+        Game.tas = None
+        Game.tas_count = 0
+        Game.turn = None
+        Game.players = None
+        Game.players_color = []
+        Game.winers = []
+        # part_piece
+        for i in Piece.total_piece:
+            i.move(i.piece_store[0], i.piece_store[1])
+            i.setHidden(True)
+            i.setEnabled(True)
+
+        # part_login_player
+        Login.players = []
+        Login.selected_color = []
+        # part_ludo_ui
+        self.ui.pushButton_tas.setEnabled(False)
+        self.ui.add.setEnabled(True)
+        self.ui.lbl_turns.setText('')
+        self.ui.lbl_tas.setText('')
+        self.ui.label_guid.setText('')
+        for i in self.lbl_home_number:
+            i.setText('')
 
     # Hide_unselected_buttons
     def diable_piece(self):
@@ -97,6 +122,10 @@ class Ludo:
 
     # connect the buttoms to related func
     def click_func(self):
+        # It is better: (less code, single point of failure)
+        # for piece in [self.ui.green_4, self.ui.green_3, ...]:
+        #     piece.clicked.connect(partial(piece.move_piece, piece))
+
         self.ui.green_4.clicked.connect(partial(self.ui.green_4.move_piece, self.ui.green_4))
         self.ui.green_3.clicked.connect(partial(self.ui.green_3.move_piece, self.ui.green_3))
         self.ui.green_2.clicked.connect(partial(self.ui.green_2.move_piece, self.ui.green_2))

@@ -59,12 +59,13 @@ class Game:
         for i in Game.players:
             if i.home_number == len(Game.players[Game.choose_player()].pos):
                 Game.winers.append(i)
-                Game.players_color.remove(i)
+                Game.players_color.remove(i.color)
         if len(Game.winers) == len(Game.players):
             with open('winers_ranks.txt', 'a') as f:
-                winers = str(datetime.now()) + ' '
-                for i in Game.winers:
-                    winers += (i.name + ' ')
+                winers = f'{datetime.now()} {" ".join(i.name for i in Game.winers)}'
+                # winers = str(datetime.now()) + ' '
+                # for i in Game.winers:
+                #     winers += (i.name + ' ')
                 f.write(winers)
             Game.Ludo.winers()
 
