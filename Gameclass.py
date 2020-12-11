@@ -26,12 +26,10 @@ class Game:
     def __init__(self, Ludo, players):
         Game.Ludo = Ludo
         Game.players = players
-        print(Game.players)
         for i in Game.players:
             Game.players_color.append(i.color)
         Game.setHidden()
         Game.Ludo.ui.pushButton_tas.setEnabled(True)
-        print(Game.players_color)
 
     # visible the players piece on main gui
     @staticmethod

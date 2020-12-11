@@ -85,6 +85,8 @@ class Winers(QtWidgets.QMainWindow, QtWidgets.QDialog):
         font.setWeight(75)
         self.pushButton_2.setFont(font)
         self.pushButton_2.setObjectName("pushButton_2")
+        self.lbl = [self.label_1, self.label_3, self.label_5, self.label_4]
+
 
         self.retranslateUi(mainWindow)
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
@@ -92,8 +94,8 @@ class Winers(QtWidgets.QMainWindow, QtWidgets.QDialog):
         self.pushButton_2.clicked.connect(self.end)
 
     def reset(self):
-        self.par.reset()
         self.new_game_add()
+        self.par.reset()
         self.par_1.close()
 
     def new_game_add(self):

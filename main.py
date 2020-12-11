@@ -7,6 +7,7 @@ from login_gui import Login
 from piece import Piece
 from reset import reset
 from winers_ import Winers
+from players import Players
 
 """This is a main class that contain a buttom func and all ludo game 
 Visual effects"""
@@ -66,6 +67,7 @@ class Ludo:
             self.ui.add.setEnabled(False)
             self.set_name_player()
             self.diable_piece()
+            # self.winers()
 
     # the dialog for show the messeage of min error
     def error_min_player(self):
@@ -87,6 +89,7 @@ class Ludo:
         dialog.ui = Winers(self, dialog)
         dialog.ui.setupUi(dialog)
         dialog.ui.lbl = dialog.ui.lbl[:len(Game.players)]
+        # Game.winers=[Players('parham','red'),Players('iman','green')]
         for i in range(len(dialog.ui.lbl)):
             dialog.ui.lbl[i].setText(f'{i + 1}.{Game.winers[i].name}')
             dialog.ui.lbl[i].setStyleSheet(f'color : {Game.winers[i].color}')

@@ -31,3 +31,5 @@ def reset(class_1, class_2, class_3, class_4):
     class_4.ui.label_guid.setText('')
     for i in class_4.lbl_home_number:
         i.setText('')
+    for i in range(len(class_4.lbl)):
+        class_4.lbl[i].setText('')

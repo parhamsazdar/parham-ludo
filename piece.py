@@ -1,7 +1,7 @@
 from Gameclass import Game
 from PyQt5.QtWidgets import QPushButton
 
-"""This module contains piece class and piece class is subcalss og QPushbuttom"""
+"""This module contains piece class and piece class is subcalss of QPushbuttom"""
 """In this game all the pieces are buttom """
 """This class contains most important func in ludo game which name is move_piece for moving the piece on the board"""
 
