@@ -81,13 +81,13 @@ class Login(QtWidgets.QMainWindow, QtWidgets.QDialog):
             pass_ = self.lineEdit_2.text()
             color_ = self.comboBox.currentText()
             with open('users') as f:
-                li = []
+                users = {}
                 for i in f.readlines():
                     i = i.strip()
-                    i = i.split(',')
-                    li.extend(i)
+                    username, passw = i.split(',')
+                    users[username] = passw
 
-                if (user_ and pass_ in li) and li.index(pass_) - li.index(user_) == 1:
+                if user_ in users and users[user_] == pass_:
                     Login.players.append(Players(f'{user_}', f'{color_}'))
                     x = self.comboBox.currentIndex()
                     self.comboBox.removeItem(x)
