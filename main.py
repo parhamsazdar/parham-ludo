@@ -5,7 +5,6 @@ from Gameclass import Game
 from functools import partial
 from login_gui import Login
 from piece import Piece
-from reset import reset
 from winers_ import Winers
 from players import Players
 
