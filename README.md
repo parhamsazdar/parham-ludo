@@ -7,6 +7,6 @@
 * If you want to run this project you have to run `main.py`.
 * For playing game you have to login. So you can see the users and their passwords in `users` file in the project.(you can set your own username and password in this file)
 * I named the modules meaningful.So I hope you understand each module duty.
-* And also I tried to unload Ludo rules in my code.
+* And also I tried to unload Ludo rules in the code.
 ## How to play
 * Its easy. After login in game (at least 2 player) you have to click on  `start game` from game menu above the game window and enjoy playing simple ludo game.
