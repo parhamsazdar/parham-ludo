@@ -1,6 +1,7 @@
 # Ludo Game (Python & PyQt5)
 ![ludo2](https://user-images.githubusercontent.com/71823327/109313693-b93ce700-785d-11eb-88ee-02b678610429.PNG)
 ![ludo](https://user-images.githubusercontent.com/71823327/109313664-afb37f00-785d-11eb-848f-090d2b62a12c.PNG)
+### Remember , you have to install PyQt5 package `pip install PyQt5` 
 ## Short description
 ### The Gui of this this project is powerd by PyQt5
 ### And code logic is coded by Python
